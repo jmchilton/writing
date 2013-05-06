@@ -1,0 +1,67 @@
+\documentclass[final]{beamer}
+\mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
+  \usetheme{Berlin}    %% you should define your own theme e.g. for big headlines using your own logos 
+}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{array,booktabs,tabularx}
+\usefonttheme[onlymath]{serif}
+\boldmath
+\usepackage[orientation=landscape,size=custom,width=200,height=120,scale=2,debug]{beamerposter}
+\title[]{Reproducible Proteomic Workflows using Extensions to the Galaxy Framework}
+\author[Johnson, Chilton, et al]{James Johnson; John Chilton; Pratik Jagtap; Ben Lynch; Tim Griffin}
+\institute[University of Minnesota]{Supcomputing Institute}
+\date{June 10th, 2013}
+
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}
+
+\begin{document}
+\begin{frame}
+  \begin{columns}
+
+    \begin{column}{.33\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth}  % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{
+            \begin{block}{Introduction}
+
+            \end{block}
+            \vfill
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+
+    \begin{column}{.33\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{
+            \begin{block}{Challenge - Cross Platform Job Execution}
+
+            \end{block}
+
+            \vfill
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}              
+
+    \begin{column}{.33\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{
+            \begin{block}{Challenge - Handling Large Numbers of Files}
+
+            \end{block}
+
+            \vfill
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}              
+
+  \end{columns}   
+\end{frame}
+\end{document}

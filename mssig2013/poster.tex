@@ -1,0 +1,86 @@
+\documentclass[final]{beamer}
+\mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
+  \usetheme{Berlin}    %% you should define your own theme e.g. for big headlines using your own logos 
+}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{array,booktabs,tabularx}
+\usefonttheme[onlymath]{serif}
+\boldmath
+\usepackage[orientation=landscape,size=custom,width=100,height=100,scale=2,debug]{beamerposter}
+\title[Innovative, Reproducible MS-Based Proteomic Informatics in the Cloud for Emerging Applications with Galaxy-P and CloudBioLinux]{}
+\author[John M. Chilton; James E. Johnson; Ebbing P. de Jong; Getiria Onsongo; Benjamin J.
+Lynch; Pratik D. Jagtap; Timothy J Griffin]{}
+\institute[University of Minnesota]{Supcomputing Institute}
+\date{June 10th, 2013}
+
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}
+
+\begin{document}
+\begin{frame}
+  \begin{columns}
+
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth}  % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{
+            \begin{block}{Galaxy-P Overview}
+              \begin{itemize}
+              \item Built on Galaxy framework - popular and widely cited in the genomics community.
+                \begin{itemize}
+                  \item Open source, web-based platform.
+                  \item Build complex, reproduible 
+                \end{itemize}
+              \item Integrated dozens of tools for proteomic analysis.
+              \item Built complex workflows for protein identification, quantification, and proteogenomic analysis.
+              \end{itemize}
+            \end{block}
+            \vfill
+            % TODO: 
+            \begin{block}{Proteogenomics Workflow for Galaxy-P}
+              Galaxy-P provides an integrated platform for every step of proteogenomic analysis.
+              \begin{itemize}
+                \item Build target database - download and translate EST databases or perform gene prediction with Augustus.
+                \item Numerous tools for identification. 
+                \item Workflow utilizing BLAST to identify novel peptides.
+                \item Tool to assess peptide-spectrum matches and visualize spectra.
+                \item Visualize identified, novel peptides on the genome.
+              \end{itemize}
+            \end{block}
+            \vfill
+            \begin{block}{Galaxy-P in the Cloud}
+              Spin up your own cluster for Galaxy-P in the cloud.
+            \end{block}
+            \vfill
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+
+    \begin{column}{.49\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{
+            \begin{block}{CloudBioLinux}
+              \begin{itemize}
+                \item Platforms for systems biology like Galaxy-P must bring together many diverse bioinformatic tools. Installing, configuring, and maintaining these tools is a real challenge.
+                \item CloudBioLinux provides a 
+            \end{block}
+            \vfill
+            \begin{block}{CloudBioLinux - Desktop Tools}
+              \item OpenMS and TOPPAS
+              \item PeptideShaker and SearchGUI
+              \item MZMine
+            \end{block}
+            \vfill
+           
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}              
+
+  \end{columns}   
+\end{frame}
+\end{document}
