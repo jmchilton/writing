@@ -1,6 +1,6 @@
 \documentclass[final]{beamer}
 \mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
-  \usetheme{Berlin}    %% you should define your own theme e.g. for big headlines using your own logos 
+  \usetheme{I6pd}    %% you should define your own theme e.g. for big headlines using your own logos 
 }
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
@@ -9,9 +9,9 @@
 \usefonttheme[onlymath]{serif}
 \boldmath
 \usepackage[orientation=landscape,size=custom,width=200,height=120,scale=2,debug]{beamerposter}
-\title[]{}
-\author[Johnson, Chilton, et al]{James Johnson; John Chilton; Pratik Jagtap; Ben Lynch; Tim Griffin}
-\institute[University of Minnesota]{Supcomputing Institute}
+\title{\huge Building Proteomic Application Platforms for Cloud Computing Environments with CloudBioLinux}
+\author[Chilton, Zenka, et al]{Chilton, J., Zenka, R., Jagtap, P., Lynch, B., Bergen, H.R., Griffin T.J.}
+\institute[]{University of Minnesota Supcomputing Institute}
 \date{June 10th, 2013}
 
 \newlength{\columnheight}
@@ -21,41 +21,65 @@
 \begin{frame}
   \begin{columns}
 
-    \begin{column}{.33\textwidth}
+    \begin{column}{.5\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.95\textwidth}  % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
-            \begin{block}{Introduction}
+            \begin{block}{CloudBioLinux for Data Analysis}
+            
+            \end{block}
+            \vfill
+            \begin{block}{https://biocloudcentral.msi.umn.edu/ - Create Your Own Cluster}
 
             \end{block}
             \vfill
+            \begin{block}{Applications}
+
+            \end{block}            
+            \vfill
+            \begin{block}{GUI Applications}
+
+            \end{block}
+            \vfill
+            \begin{block}{Programming Language Libraries}
+
+            \end{block}
           }
         \end{minipage}
       \end{beamercolorbox}
     \end{column}
 
-    \begin{column}{.33\textwidth}
+    \begin{column}{.5\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
-            \begin{block}{Challenge - Cross Platform Job Execution}
+            \begin{block}{CloudBioLinux for Platform Development}
 
+            Check out CloudBioLinux on Github at
+            https://github.com/chapmanb/cloudbiolinux and build a customized
+            flavor for your proteomics platform.
+            
             \end{block}
 
             \vfill
-          }
-        \end{minipage}
-      \end{beamercolorbox}
-    \end{column}              
+            
+            \begin{block}{CloudBioLinux as a Platform - wine}
 
-    \begin{column}{.33\textwidth}
-      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
-          \parbox[t][\columnheight]{\textwidth}{
-            \begin{block}{Challenge - Handling Large Numbers of Files}
+            https://github.com/jmchilton/proteomics-wine-env
 
             \end{block}
+            
             \vfill
+            
+            \begin{block}{CloudBioLinux as a Platform - Galaxy-P}
+
+            \end{block}
+            
+            \vfill
+            
+            \begin{block}{CloudBioLinux as a Platform - Swift}
+
+            \end{block}
           }
         \end{minipage}
       \end{beamercolorbox}
