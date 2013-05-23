@@ -71,36 +71,40 @@
   \end{beamercolorbox}
 }
 
+\definecolor{Descitem}{RGB}{0, 0, 0}
+\setbeamercolor{description item}{fg = i6colorscheme1}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{headline}{  
   \leavevmode
 
   \begin{beamercolorbox}[wd=\paperwidth]{headline}
     \begin{columns}[T]
-      \begin{column}{.02\paperwidth}
-      \end{column}
-      \begin{column}{.07\paperwidth}
-        \begin{center}
-          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
-        \end{center}
-        \vskip1ex
-      \end{column}
-      \begin{column}{.675\paperwidth}
+      %\begin{column}{.02\paperwidth}
+      %\end{column}
+      %\begin{column}{.07\paperwidth}
+      %  \begin{center}
+      %    %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
+      %  \end{center}
+      %  \vskip1ex
+      %\end{column}
+      %begin{column}{.675\paperwidth}
+      \begin{column}{.98\paperwidth}
         \vskip4ex
         \raggedleft
         \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
         \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
         \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}     
+        \vskip1ex
       \end{column}
-      \begin{column}{.25\paperwidth}
-        \vskip1cm
-        \begin{center}
-        \end{center}
-        logo
-        \vskip1.5cm
-      \end{column}
-      \begin{column}{.03\paperwidth}
-      \end{column}
+      %\begin{column}{.25\paperwidth}
+      %  \vskip1cm
+      %  \begin{center}
+      %  \end{center}
+      %  \vskip1.5cm
+      %\end{column}
+      %\begin{column}{.03\paperwidth}
+      %\end{column}
     \end{columns}
   \end{beamercolorbox}
   

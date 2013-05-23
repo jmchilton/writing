@@ -38,7 +38,7 @@ $(latexfile).ps : $(latexfile).dvi
 ps : $(latexfile).ps 
 
 view : $(latexfile).pdf
-	acroread $(latexfile).pdf
+	acroread $(latexfile).pdf  &
 
 # make can't know all the sourcefiles.  some file may not have
 # sourcefiles, e.g. eps's taken from other documents. 
