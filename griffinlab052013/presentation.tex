@@ -1,0 +1,102 @@
+%\documentclass[notes,handout]{beamer}
+\documentclass[]{beamer}
+\usepackage{amsmath,amsthm,ifthen}
+\usepackage{uofmtheme}
+\usepackage{pgfpages}
+\usepackage{graphicx}
+\usepackage{galaxyextensionscontent}
+\usepackage{cloudcomputingcontent}
+\usepackage{array,booktabs,tabularx}
+
+\newcommand {\flexblock}[2] {
+    \frame{
+    \frametitle{#1}
+    #2
+    }
+}
+
+\newcommand {\fleximage}[2] {
+\includegraphics[keepaspectratio,width=#1\textwidth]{../images/#2}
+}
+
+\newcommand {\screen}[1]{
+\includegraphics[keepaspectratio,width=\textwidth]{../images/#1}   
+}
+
+
+\title{Galaxy-P}
+\author{John Chilton}
+
+
+\begin{document}
+\frame{\titlepage}
+\note[] {
+}
+
+\section{Introduction}
+\introblock
+\galaxypblock
+\galaxypcloudblock
+
+\section{Galaxy-P: Dealing with Many Files}
+\manyfileschallengesblock
+\jgalaxyblock
+\toolextensionsblock
+\frame{
+    \workflowlimitfigs
+}
+
+\frame{
+    \multiplefiledatasetsdesc
+}
+
+\frame{
+    \openmsfig    
+}
+
+\section{Using Multiple File Datasets}
+\frame{
+    \frametitle{Multiple File FTP Upload Tool}
+    \screen{ftp_multifile_upload_tool.png}
+}
+
+\frame{
+    \frametitle{New Multiple File Dataset}
+    \screen{multiple_file_raw.png}
+}
+
+\frame{
+    \frametitle{Convert RAW to MGF}
+    \screen{multiple_file_msconvert_run.png}
+}
+    
+\frame{
+    \frametitle{MGF}
+    \screen{multiple_file_msconvert_complete.png}
+}
+
+\frame{
+    \frametitle{PeptideShaker}
+    \screen{multiple_file_peptideshaker.png}
+}
+
+\section{Galaxy-P: Cross-Platform Job Execution}
+\windowschallangesblock
+\lwrblock
+\msconvertblock
+\maxquantblock
+\proteinpilotblock
+
+\section{CloudBioLinux for Data Analysis}
+\cloudintroblock
+\biocloudcentralblock
+\cblappsblock
+\cblplsblock
+\cblguiappsblock
+
+\section{CloudBioLinux for Platform Development}
+\cblplatformblock
+\cblwineblock
+\cblgalaxypblock
+
+\end{document}
