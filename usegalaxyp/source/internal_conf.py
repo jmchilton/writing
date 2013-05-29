@@ -246,4 +246,4 @@ texinfo_documents = [
 def setup(app):
     app.add_config_value('target', 'public', True)
 
-target='public'
+target='internal'
