@@ -245,7 +245,12 @@ texinfo_documents = [
 #texinfo_show_urls = 'footnote'
 
 
-def setup(app):
-    app.add_config_value('target', 'public', True)
 
 target='public'
+if 'msi' in os.environ['PWD']:
+    global target
+    target='internal'
+
+def setup(app):
+    app.add_config_value('target', target, True)
+
