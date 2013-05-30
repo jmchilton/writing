@@ -23,8 +23,13 @@
 \includegraphics[keepaspectratio,width=\textwidth]{../images/#1}   
 }
 
+\newcommand {\screenh}[1]{
+    \begin{center}
+        \includegraphics[keepaspectratio,height=.9\textheight]{../images/#1}   
+    \end{center}
+}
 
-\title{Galaxy-P}
+\title{Galaxy-P Update: Pre ASMS 2013}
 \author{John Chilton}
 
 
@@ -36,22 +41,62 @@
 \frame{
     \frametitle{A Recycled Presentation}
     \begin{itemize}
-    \item ASMS Poster - "Reproducible Proteomic Workflows using Extensions to the Galaxy Framework"
-    \item Galaxy-P User Guide
-    \item ASMS Poster - "Building Proteomic Application Platforms for Cloud Computing Environments with CloudBioLinux"
+        \item ASMS Poster - "Reproducible Proteomic Workflows using Extensions to the Galaxy Framework"
+        \item Galaxy-P User Guide\\
+            \begin{itemize}
+                \item http://bit.ly/usegalaxyp-guide - Version for public server.
+                \item http://bit.ly/usegalaxyp-guide-pdf
+                \item http://bit.ly/msi-galaxyp-guide - Version for MSI server. 
+                \item http://bit.ly/msi-galaxyp-guide-pdf
+                \item Intermidate topics that take over where Pratik's Galaxy-P 101 ends.
+            \end{itemize}
+        \item ASMS Poster - "Building Proteomic Application Platforms for Cloud Computing Environments with CloudBioLinux"
     \end{itemize}
-
 }
 
-\section{Introduction}
+\frame{
+    \frametitle{Reproducible Proteomic Workflows using Extensions to the Galaxy Framework}
+    \screen{asms2013poasterge.png}
+}
+
 \introblock
 \galaxypblock
 \galaxypcloudblock
 
 \section{Galaxy-P: Dealing with Many Files}
 \manyfileschallengesblock
-\jgalaxyblock
-\toolextensionsblock
+\frame{
+    \frametitle{JGalaxy} 
+    \jgalaxydesc
+}
+
+\frame{
+    \frametitle{JGalaxy Launch}
+    \jgalaxylaunchfig[.8]
+}
+
+\frame{
+    \frametitle{JGalaxy Download} 
+    \jgalaxydownloadfig[.8]
+}
+
+% \toolextensionsblock
+
+\frame{
+    \frametitle{Selecting Multiple Files (1 / 3)}
+    \toolmgfrepeatfig[.75]
+}
+
+\frame{
+    \frametitle{Selecting Multiple Files (2 / 3)}
+    \toolmultipledesc
+}
+
+\frame{
+    \frametitle{Selecting Multiple Files (3 / 3)}
+    \toolmultipleselectfig[.75]
+}
+
 \frame{
     \workflowlimitfigs
 }
@@ -64,49 +109,265 @@
     \openmsfig    
 }
 
-\section{Using Multiple File Datasets}
 \frame{
-    \frametitle{Multiple File FTP Upload Tool}
-    \screen{ftp_multifile_upload_tool.png}
+    \frametitle{Detouring to Galaxy-P User Guide Walkthrough}
+    Detour away from high-level poster content, into screenshots from the Galaxy-P User Guide, to answer
+    two big questions!
+    \begin{itemize}
+        \item How can one create multiple file datasets?
+        \begin{itemize}
+            \item FTP, TINT Export, URL Downloads, Web Browser Uploads. 
+        \end{itemize}
+        \item How can one use multiple file datasets?
+        \begin{itemize}
+            \item Protein identification of multiple file datasets.
+        \end{itemize}
+    \end{itemize}
 }
 
 \frame{
-    \frametitle{New Multiple File Dataset}
-    \screen{multiple_file_raw.png}
+    \frametitle{Uploading Files via FTP}
+    \screenh{winscp_msi_galaxyp_login.png}
 }
 
 \frame{
-    \frametitle{Convert RAW to MGF}
-    \screen{multiple_file_msconvert_run.png}
-}
-    
-\frame{
-    \frametitle{MGF}
-    \screen{multiple_file_msconvert_complete.png}
+    \screen{winscp_save_host.png}
 }
 
 \frame{
-    \frametitle{PeptideShaker}
-    \screen{multiple_file_peptideshaker.png}
+    \screen{winscp_password.png}
 }
+
+\frame{
+    \screen{winscp_about_to_copy.png}
+}
+
+\frame{
+    \screen{winscp_copying.png}
+}
+
+\frame{
+    \screen{winscp_copied.png}
+}
+
+\frame{
+     \frametitle{Multiple File FTP Upload Tool}
+     \screenh{ftp_multifile_upload_tool.png}
+}
+
+\frame{
+     \frametitle{A New Multiple File Dataset}
+     \screen{multiple_file_raw.png}
+}
+
+\frame{
+    \frametitle{Creating Multiple File Datasets via TINT Export}
+    \screen{multifile_tint_export.png}
+}
+
+\frame{
+    \frametitle{Creating Multiple File Datasets via Browser Upload}
+    \screen{jgalaxy_multifile_upload.png}
+}
+
+
+\frame{
+    \frametitle{Creating Multiple File Datasets via URL Downloads}
+    \screen{multifile_url_paste.png}
+}
+
+\frame{
+    \frametitle{Creating Multiple File Datasets via Browser Upload}
+    \screenh{ftp_multifile_upload_tool.png}
+}
+
+\frame{
+    \frametitle{Using Multiple File Datasets}
+    Walk through an example using OMSSA and Scaffold and demonstrate the benefits.
+    \screen{scaffold_start.png}
+}
+
+\frame{
+    \frametitle{Example Dataset for Scaffold}
+    \begin{itemize}
+        \item Three fractions of the "Mycobacterium tuberculosis culture filtrate LC-MS/MS" dataset on proteomexchange.
+        \item {\tiny http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD000111}
+        \item Available to everyone in the Galaxy-P data library called "Example Data"
+        \item User guide covers how to import this dataset into a new history.
+    \end{itemize}
+}
+
+\frame{
+    \screenh{scaffold_dataset_imported.png}
+}
+
+\frame{
+    \screenh{scaffold_workflow_published.png}
+}
+
+\frame{
+    \screenh{scaffold_workflow_view_import.png}
+}
+
+\frame{
+    \screenh{scaffold_workflow_use.png}
+}
+
+\frame{
+    \screenh{scaffold_workflow_imported.png}
+}
+
+\frame{
+    \screenh{scaffold_workflow_run.png}
+}
+
+\frame{
+    \screenh{scaffold_raw_convert.png}
+}
+
+\frame{
+    \screenh{scaffold_run_omssa.png}
+}
+
+\frame{
+    \screenh{scaffold_run.png}
+}
+
+\frame{
+    \screenh{scaffold_download_sf3.png}
+}
+
+\frame{
+    \screen{scaffold_samples.png}
+}
+
+\frame{
+    \frametitle{Why not stop at Scaffold and ProteinPilot?}
+    \screen{identification_pipelines}
+}
+
+\frame{
+    \frametitle{PeptideShaker (and SearchGUI)}
+    \begin{itemize}
+        \item Automatically search X! Tandem and OMSSA.
+        \item Combine results and perform FDR analysis at protein, peptide, and/or PSM level.
+        \item A-score
+    \end{itemize}
+}
+
+\frame{
+    \frametitle{Example Dataset for PeptideShaker}
+    \begin{itemize}
+        \item Three fractions of the "Mycobacterium tuberculosis ATP-binding Proteome" dataset on proteomexchange.
+        \item {\tiny http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD000141}
+        \item Available publically on usegalaxyp.org in a data library called "Example Data"
+        \item User guide covers how to import this dataset into a new history.
+    \end{itemize}
+}
+
+\frame{
+    \screenh{peptideshaker_dataset_imported.png}
+}
+
+\frame{
+    \screenh{peptideshaker_database_download.png}
+}
+
+\frame{
+    \screenh{peptideshaker_create_target_decoy.png}
+}
+
+\frame{
+    \screenh{peptideshaker_convert_mgf.png}
+}
+
+\frame{
+    \screenh{peptideshaker_run.png}
+}
+
+\frame{
+    \screenh{peptideshaker_table.png}
+}
+
 
 \section{Galaxy-P: Cross-Platform Job Execution}
 \windowschallangesblock
 \lwrblock
-\msconvertblock
-\maxquantblock
-\proteinpilotblock
+
+\frame{
+    \frametitle{Cross Platform Tool - msconvert (1 / 2)}
+    \msconvertfig[.8]
+}
+
+\frame{
+    \frametitle{Cross Platform Tool - msconvert (2 / 2)}
+    \msconvertdesc
+}
+
+% \maxquantblock
+\frame {
+    \frametitle{Cross Platform Tool - MaxQuant (1 / 3)}
+    \maxquantfig[.5]
+}
+
+\frame {
+    \frametitle{Cross Platform Tool - MaxQuant (2 / 3)}
+    \maxquantdesc
+}
+
+\frame {
+    \frametitle{Cross Platform Tool - MaxQuant (3 / 3)}
+    \maxquantworkflow[.5]
+}
+
+% \proteinpilotblock
+\frame{
+    \frametitle{Cross Platform Tool - ProteinPilot (1 / 3)}
+    \proteinpilotfig[.5]
+}
+
+\frame{
+    \frametitle{Cross Platform Tool - ProteinPilot (2 / 3)}
+    \proteinpilotdesc
+}
+
+\frame{
+    \frametitle{Cross Platform Tool - ProteinPilot (3 / 3)}
+    \proteinpilotworkflow[.5]
+}
 
 \section{CloudBioLinux for Data Analysis}
+\frame{
+    \frametitle{Building Proteomic Application Platforms for Cloud Computing Environments with CloudBioLinux}
+    \screen{asms2013poastercc.png}
+}
+
 \cloudintroblock
 \biocloudcentralblock
 \cblappsblock
 \cblplsblock
-\cblguiappsblock
+
+\frame{
+    \frametitle{Graphical Applications}
+    \cblguiappdesc
+}
 
 \section{CloudBioLinux for Platform Development}
 \cblplatformblock
-\cblwineblock
-\cblgalaxypblock
+
+\frame{
+    \frametitle{CloudBioLinux as a Platform - wine (1 / 2)}
+    \cblwinedesc
+}
+
+\frame{
+    \frametitle{CloudBioLinux as a Platform - wine (2 / 2)}
+    \cblwinefig[.5]
+}
+
+\frame{
+    \frametitle{CloudBioLinux as a Platform - Galaxy-P}
+    \cblgalaxypdesc
+}
 
 \end{document}

@@ -89,6 +89,17 @@
   }    
 }
 
+\def\cblguiappdesc{
+  The example CloudBioLinux environment comes bundled with user-friendly graphical Desktop applications as well, including:
+  \begin{itemize}
+    \item MZmine
+    \item PeptideShaker and SearchGUI
+    \item TOPPAS
+    \item PRIDE Converter
+    \item PRIDEInspector
+  \end{itemize}
+}
+
 \def\cblguiappsblock{
   \flexblock{Graphical Applications}{
     \begin{columns}
@@ -99,14 +110,7 @@
         \end{figure}                   
       \end{column}
       \begin{column}{.39\textwidth}
-        Our example CloudBioLinux environment comes bundled with user-friendly graphical Desktop applications as well.
-        \begin{itemize}
-          \item MZmine
-          \item PeptideShaker and SearchGUI
-          \item TOPPAS
-          \item PRIDE Converter
-          \item PRIDEInspector
-        \end{itemize}
+        \cblguiappdesc
       \end{column}
       \begin{column}{.30\textwidth}
         \begin{figure}
@@ -134,36 +138,64 @@
   }
 }
 
+\def\cblwinedesc{
+  \begin{itemize}
+
+    \item Wine is a compatibility layer allowing many Windows applications
+    to run other other operating systems (such as Linux). 
+    
+    \item We have built a high level framework for packaging and
+    redistributing Wine enviornments. https://github.com/jmchilton/proteomics-wine-env \hfill \\
+
+    \begin{itemize}
+      \item Includes documentation for creating such a Wine environment
+      and configuring msconvert to work with vendor libraries.
+    \end{itemize}
+
+    \item CloudBioLinux includes support for distributing such
+    environments and creating friendly wrapper scripts along with install
+    procedures for proteomics programs such as msconvert and multiplierz.
+
+  \end{itemize}  
+}
+
+\def\cblwinefig[#1]{
+  \begin{figure}
+    \fleximage{#1}{morpheus_screenshot.png} 
+    \caption{Screenshot of the Windows-only software Morpheus running under Linux using Wine}
+  \end{figure}  
+}
+
 \def\cblwineblock{
   \flexblock{CloudBioLinux as a Platform - wine}{
     \begin{columns}
       \begin{column}{.40\textwidth}
-        \begin{figure}
-          \fleximage{.9}{morpheus_screenshot.png} 
-          \caption{Screenshot of the Windows-only software Morpheus running under Linux using Wine}
-        \end{figure}
+        \cblwinefig[.5]
       \end{column}
       \begin{column}{.59\textwidth}
-        \begin{itemize}
-
-          \item Wine is a compatibility layer allowing many Windows applications
-          to run other other operating systems (such as Linux). 
-          
-          \item We have built a high level framework for packaging and
-          redistributing Wine enviornments. https://github.com/jmchilton/proteomics-wine-env \hfill \\
-
-
-          \hskip2cm Includes documentation for creating such a Wine environment
-          and configuring msconvert to work with vendor libraries.
-
-          \item CloudBioLinux includes support for distributing such
-          environments and creating friendly wrapper scripts along with install
-          procedures for proteomics programs such as msconvert and multiplierz.
-
-        \end{itemize}
+        \cblwinedesc
       \end{column}
     \end{columns}
   }                
+}
+
+\def\cblgalaxypdesc{
+  \begin{itemize}
+
+    \item  Galaxy-P (http://getgalaxyp.org) is an extension to the popular Galaxy framework to 
+    enable proteomics workflows.
+
+    \item The example image that can be launched with CloudBioLinux comes preconfigured with 
+    an a subset of Galaxy-P.
+
+
+    \item The cross-disciplinary nature of Galaxy-P demonstrates the utility of building on 
+    CloudBioLinux and the complexity of Galaxy-P demonstrates the necessity for automating such 
+    deployments.
+
+    \item Our internal and public Galaxy server (https://usegalaxyp.org)
+
+  \end{itemize}  
 }
 
 \def\cblgalaxypblock{
@@ -172,22 +204,7 @@
     \begin{columns}
 
       \begin{column}{.60\textwidth}
-        \begin{itemize}
-
-          \item  Galaxy-P (http://getgalaxyp.org) is an extension to the popular Galaxy framework to 
-          enable proteomics workflows.
-
-          \item The example image that can be launched with CloudBioLinux comes preconfigured with 
-          an a subset of Galaxy-P.
-
-
-          \item The cross-disciplinary nature of Galaxy-P demonstrates the utility of building on 
-          CloudBioLinux and the complexity of Galaxy-P demonstrates the necessity for automating such 
-          deployments.
-
-          \item Our internal and public Galaxy server (https://usegalaxyp.org)
-
-        \end{itemize}
+        \cblgalaxypdesc
       \end{column}
 
       \begin{column}{.35\textwidth}

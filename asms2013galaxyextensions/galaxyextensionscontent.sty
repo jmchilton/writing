@@ -59,59 +59,85 @@
 \def\manyfileschallengesblock{
   \flexblock{Handling Large Numbers of Files - Challenges}{
     \begin{itemize}
-    \item From Wikipedia, "[Galaxy design choices make] it relatively easy
-    to build {\textsl\textbf typical} analyses, but more difficult to build complex
-    workflows..."
-    \item However "typical" in proteomics is much more complicated
-    than "typical" in genomics.
-    \item The large number of files resulting from the common use of fractionation, 
-    means that workflows in proteomics are relatively complex structurally
-    relative to Genomics. 
-    \item Galaxy was not geared toward handling large numbers of files.
-    \end{itemize}
-    
+      \item From Wikipedia, "[Galaxy design choices make] it relatively easy
+      to build {\textsl\textbf typical} analyses, but more difficult to build complex
+      workflows..."
+      \item However "typical" in proteomics is much more complicated
+      than "typical" in genomics.
+      \item The large number of files resulting from the common use of fractionation 
+      means that typical workflows in proteomics are more complex structurally
+      than Genomics. 
+      \item Galaxy was not geared toward handling large numbers of files.
+    \end{itemize}    
 }}
+
+\def\jgalaxydesc{
+  We developed a Java Web Start rich client application called
+  JGalaxy targetting the Galaxy API to allow easy batch file
+  downloads and uploads.  
+}
+
+\def\jgalaxydownloadfig[#1]{
+  \begin{figure}
+    \fleximage{#1}{bulkdownload_jgalaxy.png}
+  \end{figure}  
+}
+
+\def\jgalaxylaunchfig[#1]{
+  \begin{figure}
+    \fleximage{#1}{launch_jgalaxy.png}
+  \end{figure}  
+}
 
 \def\jgalaxyblock{
   \flexblock{Handling Large Numbers of Files - JGalaxy}{
     \begin{columns}
       \begin{column}{.55\textwidth}
-      We developed a Java Web Start rich client application called
-      JGalaxy targetting the Galaxy API to allow easy batch file
-      downloads.  
+      \jgalaxydesc
       \end{column}              
       \begin{column}{.44\textwidth}
-        \begin{figure}
-          \fleximage{0.50}{bulkdownload_jgalaxy.png}
-        \end{figure}              
+        \jgalaxydownloadfig[.5]
       \end{column}
-    \end{columns}
-    
-}}
+    \end{columns}  
+  }
+}
+
+\def\toolmgfrepeatfig[#1]{
+  \begin{figure}
+    \fleximage{#1}{mgf_select_repeat.png}
+    \caption{Traditional multiple input selection.}
+  \end{figure}  
+}
+
+\def\toolmultipledesc{
+  \begin{itemize}
+    \item Previously Galaxy required a lot of clicking and tracking to provide multiple inputs to a tool.
+    \item Our Galaxy tool extensions allow easy multiple selection.
+    \item \textbf{Convenient for jobs requiring a few inputs, necessary for jobs requiring dozens or hundreds.}
+    \item Used in many proteomics tools (e.g. MaxQuant, PeptideShaker, Scaffold, etc...).
+    \item Incorporated upstream in core Galaxy framework.
+  \end{itemize}  
+}
+
+\def\toolmultipleselectfig[#1]{
+  \begin{figure}
+    \fleximage{#1}{mgf_select_multiple.png}
+    \caption{Our multiple input extension.}
+  \end{figure}                
+}
+
 
 \def\toolextensionsblock{
   \flexblock{Handling Large Numbers of Files - Tool Extensions}{
     \begin{columns}
       \begin{column}{.2\textwidth}
-        \begin{figure}
-          \fleximage{0.50}{mgf_select_repeat.png}
-          \caption{Traditional multiple input selection.}
-        \end{figure}
+        \toolmgfrepeatfig[.5]
       \end{column}
       \begin{column}{.59\textwidth}
-      \begin{itemize}
-        \item Previously Galaxy required a lot of clicking and tracking to provide multiple inputs to a tool.
-        \item Our Galaxy tool extensions allow easy multiple selection.
-        \item Convenient for jobs requiring a few inputs, necessary for jobs requiring dozens or hundreds.
-        \item Used in many proteomics tools (e.g. MaxQuant, PeptideShaker, Scaffold, etc...).
-        \item Incorporated upstream in core Galaxy framework.
-      \end{itemize}
+        \toolmultipledesc
       \end{column}
       \begin{column}{.2\textwidth}
-        \begin{figure}
-          \fleximage{0.50}{mgf_select_multiple.png}
-          \caption{Our multiple input extension.}
-        \end{figure}              
+        \toolmultipleselectfig[.5]
       \end{column}
     \end{columns}            
     
@@ -133,9 +159,10 @@
   Galaxy cannot create reusable workflows with variable number of input datasets. We have created the concept of multiple file datasets to address this deficiency.
   \begin{itemize}
     \item Key Idea: Group any number of files into one Galaxy "dataset". 
-    \item This allows workflows to act
-    \item Built on the Adapt (https://bitbucket.org/glormph/adapt), but extending the Galaxy framework to address this allows it to work with all tools and all datatypes.
+    \item This allows workflows to operate over any number of inputs.
+    \item Built on initial work from Adapt (https://bitbucket.org/glormph/adapt), but extended to transparently work with arbitrary tools and datatypes.
     \item Available as part of the galaxy-extras project (https://bitbucket.org/msiappdev/galaxy-extras).
+    \item Additional benefits include "sample tracking" and keeping history to managable size.
   \end{itemize}  
 }
 
@@ -174,72 +201,111 @@
   }
 }
 
+\def\msconvertfig[#1]{
+  \begin{figure}
+    \fleximage{0.50}{msconvert3_screenshot.png}
+  \end{figure}                
+}
+
+\def\msconvertdesc{
+  \begin{itemize}
+    \item msconvert is a tool for converting between various mass spec file formats.
+    \item msconvert is distributed as part of the open source package Proteowizard
+    \item http://proteowizard.sourceforge.net/
+    \item In addition to file conversion, the provides acceess to many of msconvert's filtering options as well
+      \begin{itemize}
+        \item Peak picking (centroiding)
+        \item Filtering by activation (CID, HCD, etc...), m/z, intensity, MS level, etc...
+        \item Advanced ETD filtering
+        \item Deisotoping and Denoising
+      \end{itemize}
+  \end{itemize}  
+}
+
+
 \def\msconvertblock{
   \flexblock{Cross Platform Tool - msconvert}{
     \begin{columns}
       \begin{column}{.39\textwidth}
-        \begin{figure}
-          \fleximage{0.50}{msconvert3_screenshot.png}
-        \end{figure}              
+        \msconvertfig[.5]
       \end{column}
       \begin{column}{.60\textwidth}
-        \begin{itemize}
-          \item msconvert is a tool for converting between various mass spec file formats.
-          \item msconvert is distributed as part of the open source package Proteowizard
-          \item http://proteowizard.sourceforge.net/
-        \end{itemize}
+        \msconvertdesc
       \end{column}  
     \end{columns}            
   }
+}
+
+\def\maxquantfig[#1]{
+  \begin{figure}
+    \fleximage{#1}{maxquant_screenshot.png}
+  \end{figure}                
+}
+
+\def\maxquantdesc{
+  \begin{itemize}
+    \item A proteomics package for Thermo Fisher instruments developed at the Max Planck Institute.
+    \item Many options for quantitative analysis.
+  \end{itemize}
+}
+
+\def\maxquantworkflow[#1]{
+  \begin{figure}
+    \fleximage{#1}{dual_label_workflow.png}
+    \caption{Workflow demonstrates combining MaxQuant for SILAC analysis with iQuant for iTRAQ analysis for dually labeled samples.}
+  \end{figure}                
 }
 
 \def\maxquantblock{
   \flexblock{Cross Platform Tool - MaxQuant}{
     \begin{columns}
       \begin{column}{.19\textwidth}
-        \begin{figure}
-          \fleximage{0.50}{maxquant_screenshot.png}
-        \end{figure}              
+        \maxquantfig[.5]
       \end{column}
       \begin{column}{.49\textwidth}
-        \begin{itemize}
-          \item A proteomics package for Thermo Fisher instruments developed at the Max Planck Institute.
-          \item Many options for quantitative analysis.
-          \item The LWR allows for MaxQuant's use in Galaxy.
-        \end{itemize}
+        \maxquantdesc
       \end{column}
-      \begin{column}{.29\textwidth} 
-        \begin{figure}
-          \fleximage{0.35}{dual_label_workflow.png}
-          \caption{Workflow demonstrates combining MaxQuant for SILAC analysis with iQuant for iTRAQ analysis for dually labeled samples.}
-        \end{figure}              
+      \begin{column}{.29\textwidth}
+        \maxquantworkflow[.35] 
       \end{column}
     \end{columns}
   }
+}
+
+\def\proteinpilotfig[#1]{
+  \begin{figure}
+    \fleximage{#1}{proteinpilot_screenshot.png}
+  \end{figure}                
+}
+
+\def\proteinpilotdesc{
+  \begin{itemize}
+    \item ProteinPilot is a commercial tool developed by AB SCIEX.
+    \item {\footnotesize http://www.absciex.com/products/software/proteinpilot-software}
+    \item LWR is used for running ProteinPilot as well as other supporting tools to generate use tabular data from proprietary ProteinPilot outputs for downstream processing. 
+  \end{itemize}  
+}
+
+\def\proteinpilotworkflow[#1]{
+  \begin{figure}
+    \fleximage{#1}{minnesota_two_step.png}
+    \caption{The "Minnesota Two Step" workflow proteogenomics using ProteinPilot in Galaxy-P.}
+  \end{figure}  
 }
 
 \def\proteinpilotblock{
   \flexblock{Cross Platform Tool - ProteinPilot}{
     \begin{columns}
       \begin{column}{.2\textwidth}
-        \begin{figure}
-          \fleximage{0.50}{proteinpilot_screenshot.png}
-        \end{figure}              
+        \proteinpilotfig[.5]
       \end{column}
 
       \begin{column}{.50\textwidth}
-        \begin{itemize}
-          \item ProteinPilot is a commercial tool developed by AB SCIEX.
-          \item {\footnotesize http://www.absciex.com/products/software/proteinpilot-software}
-          \item LWR is used for running ProteinPilot as well as other supporting tools to generate use tabular data from proprietary ProteinPilot outputs for downstream processing. 
-        \end{itemize}
+        \proteinpilotdesc
       \end{column}
 
       \begin{column}{.3\textwidth}
-        \begin{figure}
-          \fleximage{0.25}{minnesota_two_step.png}
-          \caption{The "Minnesota Two Step" workflow proteogenomics using ProteinPilot in Galaxy-P.}
-        \end{figure}
+        \proteinpilotworkflow[.25]
       \end{column}
     \end{columns}
   }
