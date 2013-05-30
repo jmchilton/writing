@@ -253,4 +253,6 @@ if 'msi' in os.environ['PWD']:
 
 def setup(app):
     app.add_config_value('target', target, True)
+    if target == 'internal':
+        app.tags.add('internal')
 
