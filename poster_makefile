@@ -8,7 +8,7 @@ latexfile = poster
 figures = 
 
 
-TEX = latex
+TEX = pdflatex
 
 # support subdirectories
 VPATH = Figs
