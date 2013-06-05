@@ -10,8 +10,8 @@ Galaxy-P User Guide
    sections/introduction
    sections/ftp
    sections/multiple_file_datasets
+   sections/scaffold
    sections/peptideshaker
-
 
 Indices and tables
 ==================

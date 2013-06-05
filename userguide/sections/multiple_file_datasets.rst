@@ -38,7 +38,7 @@ There are several ways to do this.
   to create a multiple file datasets from files or a directory of files 
   uploaded via FTP.
 
-  .. image:: ../../../images/ftp_multifile_upload_tool.png
+  .. image:: ../../images/ftp_multifile_upload_tool.png
 
 - One can use the "Multiple File Datasets" -> "Upload and Merge" tool and simply
   click the "Choose Files" button and select multiple file for upload.
@@ -47,14 +47,14 @@ There are several ways to do this.
   in multiple URLs to have Galaxy download these files and create a multiple file 
   dataset.
 
-  .. image:: ../../../images/multifile_url_paste.png
+  .. image:: ../../images/multifile_url_paste.png
 
 .. ifconfig:: target == 'internal'
   
   - When exporting data from TINT to Galaxy-P, simply check the "Export as multiple file dataset"
     checkbox to create a multiple file dataset.
 
-    .. image:: ../../../images/multifile_tint_export.png
+    .. image:: ../../images/multifile_tint_export.png
   
 
 

@@ -166,7 +166,6 @@ html_static_path = ['_static']
 # This is the file name suffix for HTML files (e.g. ".xhtml").
 #html_file_suffix = None
 
-
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'UsingGalaxy-Pdoc'
 
@@ -249,6 +248,7 @@ texinfo_documents = [
 
 target='public'
 if 'msi' in os.environ['PWD']:
+    global target
     target='internal'
 
 def setup(app):

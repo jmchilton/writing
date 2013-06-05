@@ -45,20 +45,20 @@ used as long as they support FTP with encryption.
 
     .. ifconfig:: target == 'internal'
 
-        .. image:: ../../../images/winscp_msi_galaxyp_login.png
+        .. image:: ../../images/winscp_msi_galaxyp_login.png
         
     .. ifconfig:: target == 'public'
 
-        .. image:: ../../../images/winscp_usegalaxyp_login.png
+        .. image:: ../../images/winscp_usegalaxyp_login.png
 
 - The first time you connect, you will likely be prompted to store the hosts
   SSL certificate, do this by clicking "Yes".
 
-  .. image:: ../../../images/winscp_save_host.png
+  .. image:: ../../images/winscp_save_host.png
 
 - When prompted for your password, please enter it and click "Okay".
 
-  .. image:: ../../../images/winscp_password.png
+  .. image:: ../../images/winscp_password.png
 
 - If everything has gone well, you should now see two file browsers. The one
   on your left is your computer's files and the one on the right is your
@@ -69,29 +69,29 @@ used as long as they support FTP with encryption.
 
   .. ifconfig:: target == 'internal'
 
-    .. image:: ../../../images/winscp_about_to_copy.png
+    .. image:: ../../images/winscp_about_to_copy.png
        :scale: 50
     
   .. ifconfig:: target == 'public'
 
-    .. image:: ../../../images/winscp_about_to_copy_public.png
+    .. image:: ../../images/winscp_about_to_copy_public.png
        :scale: 50
 
 - Drag and drop these files to the right panel to begin the transfer and wait
   as the files are transfered. 
 
-  .. image:: ../../../images/winscp_copying.png
+  .. image:: ../../images/winscp_copying.png
 
 - Verify your files have been copied.
 
   .. ifconfig:: target == 'internal'
 
-    .. image:: ../../../images/winscp_copied.png
+    .. image:: ../../images/winscp_copied.png
        :scale: 50
 
   .. ifconfig:: target == 'public'
 
-    .. image:: ../../../images/winscp_copied_public.png
+    .. image:: ../../images/winscp_copied_public.png
        :scale: 50
 
 - These files may now be imported into a Galaxy history using the "Data
@@ -102,7 +102,7 @@ used as long as they support FTP with encryption.
   Likewise, these a multiple file dataset can be created using these files and
   the "Multiple File Datasets" -> "Upload and merge" tool.
 
-  .. image:: ../../../images/ftp_multifile_upload_tool.png
+  .. image:: ../../images/ftp_multifile_upload_tool.png
 
 See Also
 ---------------

@@ -2,19 +2,19 @@
 A Simple Worklfow using PeptideShaker
 -------------------------------------
 
-  .. image:: ../../../images/ftp_multifile_upload_tool.png
+  .. image:: ../../images/ftp_multifile_upload_tool.png
 
-  .. image:: ../../../images/peptideshaker_dataset_imported.png
+  .. image:: ../../images/peptideshaker_dataset_imported.png
 
-  .. image:: ../../../images/peptideshaker_database_download.png  
+  .. image:: ../../images/peptideshaker_database_download.png  
 
-  .. image:: ../../../images/peptideshaker_create_target_decoy.png
+  .. image:: ../../images/peptideshaker_create_target_decoy.png
 
-  .. image:: ../../../images/peptideshaker_convert_mgf.png  
+  .. image:: ../../images/peptideshaker_convert_mgf.png  
 
-  .. image:: ../../../images/peptideshaker_run.png
+  .. image:: ../../images/peptideshaker_run.png
 
-  .. image:: ../../../images/peptideshaker_table.png
+  .. image:: ../../images/peptideshaker_table.png
 
 
 .. _ATP: http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD000141
