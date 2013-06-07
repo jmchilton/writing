@@ -9,9 +9,9 @@
 \usepackage{graphicx}
 \usefonttheme[onlymath]{serif}
 \boldmath
-\usepackage[orientation=landscape,size=custom,width=200,height=120,scale=1.9,debug]{beamerposter}
+\usepackage[orientation=landscape,size=custom,width=176,height=105,scale=1.67,debug]{beamerposter}
 \title{\huge Building Proteomic Application Platforms for Cloud Computing Environments with CloudBioLinux}
-\author[Chilton, Zenka, et al]{Chilton, J.\textsuperscript{1}, Zenka, R.\textsuperscript{2}, Jagtap, P.\textsuperscript{1}, Lynch, B.\textsuperscript{1}, Bergen, H.R.\textsuperscript{2}, Griffin T.J.\textsuperscript{3}}
+\author[Chilton, Zenka, et al]{Chilton, J.\textsuperscript{1*}, Zenka, R.\textsuperscript{2}, Jagtap, P.\textsuperscript{1}, Lynch, B.\textsuperscript{1}, Bergen III, H.R.\textsuperscript{2}, Griffin, T.J.\textsuperscript{3}}
 \institute[]{\textsuperscript{1}University of Minnesota Supcomputing Institute; \textsuperscript{2}Mayo Clinic; \textsuperscript{3}University of Minnesota}
 \date{June 10th, 2013}
 
@@ -23,19 +23,19 @@
   \begin{columns}
     \begin{column}{.5\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.95\textwidth}  % tweaks the width, makes a new \textwidth
+        \begin{minipage}[T]{.97\textwidth}  % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
             \cloudintroblock
             \vfill
             \biocloudcentralblock
             \vfill
             \begin{columns}
-              \begin{column}{.49\textwidth}
+              \begin{column}{.54\textwidth} % Best fit, .48, .02, .48 | .54, .02, .42
                 \cblappsblock
               \end{column}
-              \begin{column}{.02\textwidth}
+              \begin{column}{.00\textwidth}
               \end{column}
-              \begin{column}{.49\textwidth}
+              \begin{column}{.425\textwidth}
                 \cblplsblock
               \end{column}
             \end{columns}
@@ -48,7 +48,7 @@
 
     \begin{column}{.5\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
+        \begin{minipage}[T]{.98\textwidth} % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
             \cblplatformblock
             \vfill

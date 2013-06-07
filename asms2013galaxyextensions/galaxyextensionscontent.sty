@@ -3,11 +3,11 @@
 \def\introblock{
   \flexblock{Introduction to Galaxy}{
     \begin{itemize}
-    \item The Galaxy framework is a popular and widely cited platform in the
+    \item The Galaxy framework (http://galaxyproject.org/) is a popular and widely cited platform in the
     genomics community.
       \begin{itemize}
         \item Open source, web-based.
-        \item Build complex, reproduible bioinformatics workflows.
+        \item Build complex, reproducible bioinformatics workflows.
       \end{itemize}
     \item As part of the Galaxy-P project we have:
       \begin{itemize} 
@@ -22,15 +22,15 @@
 \def\galaxypblock{
   \flexblock{Galaxy-P}{
       \begin{columns}
-      \begin{column}{.54\textwidth}
+      \begin{column}{.49\textwidth}
         \begin{itemize}
           \item Try out our public server at https://usegalaxyp.org
-          \item Build your own Galaxy-P http://getgalaxyp.org/
+          \item Find instructions for building your own Galaxy-P at http://getgalaxyp.org
         \end{itemize}
       \end{column}
-      \begin{column}{.44\textwidth}
+      \begin{column}{.5\textwidth}
         \begin{figure}
-          \fleximage{0.60}{galaxyp_screenshot.png}
+          \fleximage{0.86}{galaxyp_screenshot.png}
         \end{figure}
       \end{column}
     \end{columns}              
@@ -42,13 +42,19 @@
     \begin{columns}
       \begin{column}{.39\textwidth}
         \begin{figure}
-          \fleximage{0.50}{biocloudcentral.png}
+          \fleximage{0.8}{biocloudcentral.png}
         \end{figure}
       \end{column}
       
-      \begin{column}{.59\textwidth}
+      \begin{column}{.58\textwidth}
         \begin{itemize}
-          \item Create your very own Galaxy-P cluster on Amazon's cloud infrucutre https://biocloudcentral.msi.umn.edu
+          
+          \item Create your own Galaxy-P cluster on Amazon's cloud
+          infrastructure https://biocloudcentral.msi.umn.edu.
+
+          \item Launches with CloudMan - an easy-to-use interface for managing
+          your new virtual cluster.
+
         \end{itemize}
       \end{column}
     \end{columns}
@@ -62,19 +68,22 @@
       \item From Wikipedia, "[Galaxy design choices make] it relatively easy
       to build {\textsl\textbf typical} analyses, but more difficult to build complex
       workflows..."
-      \item However "typical" in proteomics is much more complicated
+      \item However "typical" in proteomics is more complicated
       than "typical" in genomics.
-      \item The large number of files resulting from the common use of fractionation 
-      means that typical workflows in proteomics are more complex structurally
-      than Genomics. 
+      \item The large number of files resulting from the common use of MudPIT/fractionation 
+      means that typical workflows in proteomics are structurally more complex
+      than genomics. 
       \item Galaxy was not geared toward handling large numbers of files.
-    \end{itemize}    
+    \end{itemize}
 }}
 
 \def\jgalaxydesc{
   We developed a Java Web Start rich client application called
-  JGalaxy targetting the Galaxy API to allow easy batch file
-  downloads and uploads.  
+  JGalaxy targeting the Galaxy API to allow easy batch file
+  downloads and uploads.
+  \\ 
+  This makes it easier to get a large number of files in and 
+  out of Galaxy quickly.
 }
 
 \def\jgalaxydownloadfig[#1]{
@@ -92,11 +101,16 @@
 \def\jgalaxyblock{
   \flexblock{Handling Large Numbers of Files - JGalaxy}{
     \begin{columns}
-      \begin{column}{.55\textwidth}
-      \jgalaxydesc
+      \begin{column}{.25\textwidth}
+        \begin{figure}
+          \fleximage{.7}{jgalaxy_launch_small.png}
+        \end{figure}      
       \end{column}              
-      \begin{column}{.44\textwidth}
-        \jgalaxydownloadfig[.5]
+      \begin{column}{.45\textwidth}
+        \jgalaxydesc
+      \end{column}              
+      \begin{column}{.29\textwidth}
+        \jgalaxydownloadfig[.8]
       \end{column}
     \end{columns}  
   }
@@ -114,7 +128,7 @@
     \item Previously Galaxy required a lot of clicking and tracking to provide multiple inputs to a tool.
     \item Our Galaxy tool extensions allow easy multiple selection.
     \item \textbf{Convenient for jobs requiring a few inputs, necessary for jobs requiring dozens or hundreds.}
-    \item Used in many proteomics tools (e.g. MaxQuant, PeptideShaker, Scaffold, etc...).
+    \item Used in many Galaxy-P proteomics tool wrappers (e.g. MaxQuant, PeptideShaker, Scaffold, etc...).
     \item Incorporated upstream in core Galaxy framework.
   \end{itemize}  
 }
@@ -130,14 +144,14 @@
 \def\toolextensionsblock{
   \flexblock{Handling Large Numbers of Files - Tool Extensions}{
     \begin{columns}
-      \begin{column}{.2\textwidth}
-        \toolmgfrepeatfig[.5]
+      \begin{column}{.24\textwidth}
+        \toolmgfrepeatfig[.75]
       \end{column}
-      \begin{column}{.59\textwidth}
+      \begin{column}{.50\textwidth}
         \toolmultipledesc
       \end{column}
       \begin{column}{.2\textwidth}
-        \toolmultipleselectfig[.5]
+        \toolmultipleselectfig[.8]
       \end{column}
     \end{columns}            
     
@@ -145,12 +159,12 @@
 
 \def\workflowlimitfigs{
   \begin{figure}
-    \fleximage{0.70}{workflow_two_inputs_cropped.png}
+    \fleximage{0.97}{workflow_two_inputs_cropped.png}
     \caption{Traditional Galaxy workflows would not allow this workflow for two inputs to be used with three inputs.}
-  \end{figure}              
-  \vfill
+  \end{figure}
+  \vskip3cm
   \begin{figure}
-    \fleximage{0.70}{workflow_two_input_combined_cropped.png}
+    \fleximage{0.97}{workflow_two_input_combined_cropped.png}
     \caption{Key innovation here it to group multiple files into a single dataset resulting in a flatter workflow.}
   \end{figure}  
 }
@@ -158,11 +172,11 @@
 \def\multiplefiledatasetsdesc{
   Galaxy cannot create reusable workflows with variable number of input datasets. We have created the concept of multiple file datasets to address this deficiency.
   \begin{itemize}
-    \item Key Idea: Group any number of files into one Galaxy "dataset". 
-    \item This allows workflows to operate over any number of inputs.
-    \item Built on initial work from Adapt (https://bitbucket.org/glormph/adapt), but extended to transparently work with arbitrary tools and datatypes.
-    \item Available as part of the galaxy-extras project (https://bitbucket.org/msiappdev/galaxy-extras).
-    \item Additional benefits include "sample tracking" and keeping history to managable size.
+    \item Key Idea: Group any number of files into one Galaxy "dataset".
+    \item This allows workflows to operate over any number of inputs and produce any number of outputs.
+    \item Built on initial work from Adapt (https://bitbucket.org/glormph/adapt), but extended to transparently work with arbitrary tools and data types.
+    \item Available as part of our galaxy-extras project at https://bitbucket.org/msiappdev/galaxy-extras.
+    \item Additional benefits include implicit "sample tracking" through complex workflows and keeping the Galaxy history user interface manageable and responsive by reducing the number of datasets used and created in such workflows.
   \end{itemize}  
 }
 
@@ -170,66 +184,67 @@
   \flexblock{Cross Platform Job Execution - Challenges}{
 
     Perhaps driven by proprietary data formats, proteomics has a
-    Windows-centric culture not present in genomics. As an upshot,
+    Windows-centric culture that genomics does not. As an upshot,
     previously there was no easy way to run Windows applications in
     the Galaxy framework.
-
+    \\
+    \\
     {\large\textsl
-    The large number of important proteomics applications tied to the
-    Windows platform nesseciatated the creation of the LWR.}
+    The number of important proteomics applications tied to the
+    Windows platform necessitated the creation of the LWR.}
   }
 }
 
 \def\openmsfig{
   \begin{figure}
-    \fleximage{0.70}{consensus_id_workflow.png}
-    \caption{OpenMS ConsensusID workflow that can operate over any number of peak lists, would not be possible in Galaxy without multiple file dataset extensions.}
+    \fleximage{0.90}{consensus_id_workflow.png}
+    \caption{OpenMS ConsensusID workflow that can operate over any number of peak lists, would not be possible in Galaxy without multiple file dataset extensions. Extension also works seamlessly, the ConsensusID tool does not need to know if it was given multiple input datasets or a single multiple file dataset.}
   \end{figure}
 }
 
 \def\lwrblock{
   \flexblock{Cross Platform Job Execution with the LWR}{
 
-    The LWR is an application that can be installed on any server
-    (Windows or *nix) and allows a remote Galaxy instance to submit
-    jobs to that host.
+    The LWR is an application that can be installed on any server (Windows or
+    *nix), allowing remote Galaxy instances can submit standard Galaxy jobs to
+    that host.
 
     \begin{itemize}
-    \item https://lwr.readthedocs.org - Read more about installing the LWR and configuring Galaxy clients 
-    \item https://bit.ly/galaxy-lwr-code - Check out the LWR source code.
+      \item Learn how to install the LWR and configuring Galaxy clients at https://lwr.readthedocs.org.
+      \item Check out the LWR source code at https://bit.ly/galaxy-lwr-code.
+      \item Easy to secure and maintain. Runner code has been included in core Galaxy framework.
+      \item LWR allows Galaxy-P to utilize the applications highlighted below (each implemented as standard Galaxy tools).
     \end{itemize}
   }
 }
 
 \def\msconvertfig[#1]{
   \begin{figure}
-    \fleximage{0.50}{msconvert3_screenshot.png}
+    \fleximage{#1}{msconvert3_screenshot.png}
   \end{figure}                
 }
 
 \def\msconvertdesc{
   \begin{itemize}
-    \item msconvert is a tool for converting between various mass spec file formats.
-    \item msconvert is distributed as part of the open source package Proteowizard
-    \item http://proteowizard.sourceforge.net/
-    \item In addition to file conversion, the provides acceess to many of msconvert's filtering options as well
+    \item msconvert (part of ProteWizard) is a tool for converting between various mass spec file formats.
+    \item The LWR allows Galaxy-P to utilize the Windows version of msconvert required for converting vendor formats.
+    \item Galaxy-P provides access to many msconvert filtering options:
       \begin{itemize}
         \item Peak picking (centroiding)
         \item Filtering by activation (CID, HCD, etc...), m/z, intensity, MS level, etc...
-        \item Advanced ETD filtering
-        \item Deisotoping and Denoising
+        \item Advanced ETD filtering, deisotoping, and denoising
       \end{itemize}
   \end{itemize}  
 }
 
 
 \def\msconvertblock{
-  \flexblock{Cross Platform Tool - msconvert}{
+  \flexblock{Tool Highlight - msconvert}{
     \begin{columns}
-      \begin{column}{.39\textwidth}
-        \msconvertfig[.5]
+      \begin{column}{.25\textwidth}
+        \msconvertfig[.65]
       \end{column}
-      \begin{column}{.60\textwidth}
+      \begin{column}{.74\textwidth}
         \msconvertdesc
       \end{column}  
     \end{columns}            
@@ -244,29 +259,29 @@
 
 \def\maxquantdesc{
   \begin{itemize}
-    \item A proteomics package for Thermo Fisher instruments developed at the Max Planck Institute.
-    \item Many options for quantitative analysis.
+    \item A popular quantitative proteomics package for Thermo Fisher instruments developed at the Max Planck Institute.
+    \item Workflow to the right demonstrates combining MaxQuant for SILAC analysis with iQuant for iTRAQ analysis for dually labeled samples.
   \end{itemize}
 }
 
 \def\maxquantworkflow[#1]{
   \begin{figure}
     \fleximage{#1}{dual_label_workflow.png}
-    \caption{Workflow demonstrates combining MaxQuant for SILAC analysis with iQuant for iTRAQ analysis for dually labeled samples.}
+    %\caption{Workflow demonstrates combining MaxQuant for SILAC analysis with iQuant for iTRAQ analysis for dually labeled samples.}
   \end{figure}                
 }
 
 \def\maxquantblock{
-  \flexblock{Cross Platform Tool - MaxQuant}{
+  \flexblock{Tool Highlight - MaxQuant}{
     \begin{columns}
-      \begin{column}{.19\textwidth}
-        \maxquantfig[.5]
+      \begin{column}{.17\textwidth}
+        \maxquantfig[.8]
       \end{column}
-      \begin{column}{.49\textwidth}
+      \begin{column}{.48\textwidth}
         \maxquantdesc
       \end{column}
-      \begin{column}{.29\textwidth}
-        \maxquantworkflow[.35] 
+      \begin{column}{.32\textwidth}
+        \maxquantworkflow[.85] 
       \end{column}
     \end{columns}
   }
@@ -282,30 +297,31 @@
   \begin{itemize}
     \item ProteinPilot is a commercial tool developed by AB SCIEX.
     \item {\footnotesize http://www.absciex.com/products/software/proteinpilot-software}
-    \item LWR is used for running ProteinPilot as well as other supporting tools to generate use tabular data from proprietary ProteinPilot outputs for downstream processing. 
+    \item LWR is used for running ProteinPilot as well as supporting tools to extract data from proprietary ProteinPilot outputs.
+    \item The "Minnesota Two Step" workflow for proteogenomics and metaproteomics using ProteinPilot in Galaxy-P is shown to the right.
   \end{itemize}  
 }
 
 \def\proteinpilotworkflow[#1]{
   \begin{figure}
     \fleximage{#1}{minnesota_two_step.png}
-    \caption{The "Minnesota Two Step" workflow proteogenomics using ProteinPilot in Galaxy-P.}
+    %\caption{The "Minnesota Two Step" workflow proteogenomics using ProteinPilot in Galaxy-P.}
   \end{figure}  
 }
 
 \def\proteinpilotblock{
-  \flexblock{Cross Platform Tool - ProteinPilot}{
+  \flexblock{Tool Highlight - ProteinPilot}{
     \begin{columns}
       \begin{column}{.2\textwidth}
-        \proteinpilotfig[.5]
+        \proteinpilotfig[.65]
       \end{column}
 
-      \begin{column}{.50\textwidth}
+      \begin{column}{.55\textwidth}
         \proteinpilotdesc
       \end{column}
 
-      \begin{column}{.3\textwidth}
-        \proteinpilotworkflow[.25]
+      \begin{column}{.24\textwidth}
+        \proteinpilotworkflow[.7]
       \end{column}
     \end{columns}
   }

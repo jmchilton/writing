@@ -4,9 +4,10 @@
   \flexblock{CloudBioLinux for Data Analysis}{
 
     \begin{itemize}
-      \item CloudBioLinux is an open-source framework for creating fully
-      automated installation mechanisms for bioinformatics software and
-      data.
+
+      \item CloudBioLinux is an open-source
+      framework for creating fully automated installation mechanisms for
+      bioinformatics software and data.
 
       \item We have contributed numerous extensions and enhancements to
       CloudBioLinux to make a great environment for building mass spec data analysis
@@ -18,6 +19,11 @@
       with other bioinformatic analyses (such as sequence similarity 
       analysis or genomic mapping). CloudBioLinux is an ideal platform 
       for creating such platforms.
+
+      \item The core CloudBioLinux framework is developed and maintained by
+      Brad Chapman, more information can be found at
+      http://cloudbiolinux.org/.
+
     \end{itemize}
   }
 }
@@ -25,25 +31,27 @@
 \def\biocloudcentralblock{
   \flexblock{https://biocloudcentral.msi.umn.edu/ - Create Your Own Cluster}{
     \begin{columns}
-      \begin{column}{.35\textwidth}
+      \begin{column}{.22\textwidth}
         \begin{figure}
-          \fleximage{0.5}{biocloudcentral.png}
+          \fleximage{.74}{biocloudcentral.png}
         \end{figure}              
       \end{column}
 
-      \begin{column}{.60\textwidth}
+      \begin{column}{.77\textwidth}
         \begin{itemize}
 
           \item Spin up your own cluster created with CloudBioLinux
-          and customized for mass spec data analysis today at
+          and our customizations for mass spec data analysis today at
           https://biocloudcentral.msi.umn.edu.
 
           \item All you need is your Amazon Web Services (AWS)
           credentials and BioCloudCentral will orchestrate the creation
           of a cluster on Amazon EC2 for your data analysis.
 
-          \item Cluster is preconfigured with CloudMan an easy-to-
-          use interface for managing your new Amazon cluster.
+          \item Cluster is preconfigured with CloudMan an easy-to-use
+          interface for managing your new Amazon cluster.
+
+          \item This cloud image comes prebundled with applications, programming libraries, and GUI tools described below.
 
         \end{itemize}
       \end{column}
@@ -58,7 +66,7 @@
     \begin{description}
        \item[\textbf{Large Proteomic Tool Suites}] \hfill \\
         \textsl{Trans proteomic-pipeline, OpenMS, crux}
-      \item[\textbf{Datbase Search Tools}] \hfill \\
+      \item[\textbf{Database Search Tools}] \hfill \\
         \textsl{Myrimatch, X! Tandem, OMSSA, ...}
       \item[\textbf{Specialized Identification Tools}] \hfill \\
         \textsl{TagRecon, PepNovo, ...}
@@ -67,7 +75,7 @@
       \item[\textbf{Bioinformatics}] \hfill \\
         \textsl{NCBI Blast+, EMBOSS, Augustus, ...}
       \item[\textbf{Tools Developed at the University of Minnesota}]  \hfill \\
-        \textsl{iQuant (isobaric quantification), psm-eval (flexiable re-evaluation of identified peptide-spectrum matches), peptide-to-gff (map peptides for genomic visualization)}
+        \textsl{iQuant (isobaric quantification), psm-eval (flexible re-evaluation of identified peptide-spectrum matches), peptide-to-gff (map peptides for genomic visualization)}
     \end{description}
   }                
 }
@@ -103,19 +111,19 @@
 \def\cblguiappsblock{
   \flexblock{Graphical Applications}{
     \begin{columns}
-      \begin{column}{.30\textwidth}
+      \begin{column}{.34\textwidth}
         \begin{figure}
-          \fleximage{0.4}{peptideshaker_screenshot_fake.png} \\
-          \caption{TODO: Replace me with actual screenshot from a Cloud environment.}
+          \fleximage{0.55}{peptideshaker_cloud.png} \\
+          \caption{PeptideShaker running in a CloudBioLinux environment. More information on PeptideShaker can be found at http://code.google.com/p/peptide-shaker/}
         \end{figure}                   
       \end{column}
-      \begin{column}{.39\textwidth}
+      \begin{column}{.29\textwidth}
         \cblguiappdesc
       \end{column}
-      \begin{column}{.30\textwidth}
+      \begin{column}{.34\textwidth}
         \begin{figure}
-          \fleximage{0.5}{mzmine_screenshot_fake.jpg}
-          \caption{TODO: Replace me with actual screenshot from a Cloud environment.}
+          \fleximage{0.55}{toppas_cloud.png}
+          \caption{OpenMS TOPPAS workflow editor running in a CloudBioLinux environment. More information on OpenMS can be found at http://open-ms.sourceforge.net/ }
         \end{figure}
       \end{column}              
     \end{columns}
@@ -162,18 +170,18 @@
 \def\cblwinefig[#1]{
   \begin{figure}
     \fleximage{#1}{morpheus_screenshot.png} 
-    \caption{Screenshot of the Windows-only software Morpheus running under Linux using Wine}
+    \caption{Screenshot of the Windows-only software Morpheus running under Linux using Wine. More information on the Morpheus can be found here: \small{http://www.chem.wisc.edu/~coon/software.php}}
   \end{figure}  
 }
 
 \def\cblwineblock{
   \flexblock{CloudBioLinux as a Platform - wine}{
     \begin{columns}
-      \begin{column}{.40\textwidth}
-        \cblwinefig[.5]
-      \end{column}
       \begin{column}{.59\textwidth}
         \cblwinedesc
+      \end{column}
+      \begin{column}{.40\textwidth}
+        \cblwinefig[.5]
       \end{column}
     \end{columns}
   }                
@@ -182,18 +190,19 @@
 \def\cblgalaxypdesc{
   \begin{itemize}
 
-    \item  Galaxy-P (http://getgalaxyp.org) is an extension to the popular Galaxy framework to 
+    \item  Galaxy-P (http://getgalaxyp.org) is an extension to the popular Galaxy (http://galaxyproject.org) framework to 
     enable proteomics workflows.
 
     \item The example image that can be launched with CloudBioLinux comes preconfigured with 
     an a subset of Galaxy-P.
 
-
-    \item The cross-disciplinary nature of Galaxy-P demonstrates the utility of building on 
+    \item The multi-omics systems biology nature of Galaxy-P demonstrates the utility of building on 
     CloudBioLinux and the complexity of Galaxy-P demonstrates the necessity for automating such 
     deployments.
 
-    \item Our internal and public Galaxy server (https://usegalaxyp.org)
+    \item Our internal and publicly accessible Galaxy-P servers
+    (https://usegalaxyp.org) are both hosted on a private OpenStack cloud
+    infrastructure and running images built with CloudBioLinux.
 
   \end{itemize}  
 }
@@ -202,16 +211,16 @@
   \flexblock{CloudBioLinux as a Platform - Galaxy-P}{
 
     \begin{columns}
+      \begin{column}{.44\textwidth}
+        \begin{figure}
+          \fleximage{0.80}{galaxyp_screenshot.png}
+        \end{figure}
+      \end{column}
 
-      \begin{column}{.60\textwidth}
+      \begin{column}{.55\textwidth}
         \cblgalaxypdesc
       \end{column}
 
-      \begin{column}{.35\textwidth}
-        \begin{figure}
-          \fleximage{0.7}{galaxyp_screenshot.png}
-        \end{figure}
-      \end{column}
 
     \end{columns}
   }
@@ -237,13 +246,13 @@
 
     \begin{columns}
 
-      \begin{column}{.60\textwidth}
+      \begin{column}{.45\textwidth}
         \cblswiftdesc
       \end{column}
 
-      \begin{column}{.35\textwidth}
+      \begin{column}{.54\textwidth}
         \begin{figure}
-          \fleximage{0.7}{swift_screenshot.png}
+          \fleximage{0.9}{swift_screenshot.png}
         \end{figure}
       \end{column}
 

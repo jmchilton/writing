@@ -10,17 +10,17 @@
 \usepackage{galaxyextensionscontent}
 \usefonttheme[onlymath]{serif}
 \boldmath
-\usepackage[orientation=landscape,size=custom,width=200,height=120,scale=1.9,debug]{beamerposter}
+\usepackage[orientation=landscape,size=custom,width=176,height=105,scale=1.67,debug]{beamerposter}
 \title{\huge Reproducible Proteomic Workflows using Extensions to the Galaxy Framework}
-\author[Johnson, Chilton, et al]{James Johnson\textsuperscript{1}; John Chilton\textsuperscript{1}; Pratik Jagtap\textsuperscript{1}; Ben Lynch\textsuperscript{1}; Tim Griffin\textsuperscript{2}}
+\author[Johnson, Chilton, et al]{James Johnson\textsuperscript{1}; John Chilton\textsuperscript{1*}; Pratik Jagtap\textsuperscript{1}; Ben Lynch\textsuperscript{1}; Tim Griffin\textsuperscript{2}}
 \institute[]{\textsuperscript{1}University of Minnesota Supcomputing Institute; \textsuperscript{2}University of Minnesota }
 \date{June 10th, 2013}
 
 \newlength{\columnheight}
-\setlength{\columnheight}{105cm}
+\setlength{\columnheight}{92cm}
 
 \newlength{\innercolheight}
-\setlength{\innercolheight}{.57\columnheight}
+\setlength{\innercolheight}{.50\columnheight}
 
 \newlength{\colonewidth}
 \setlength{\colonewidth}{.34\textwidth}
@@ -49,11 +49,11 @@
                     \begin{minipage}[T]{\textwidth} % tweaks the width, makes a new \textwidth
                       \parbox[t][\innercolheight]{\textwidth}{
                         \introblock
-                        \vfill
+                        \vskip.7cm
                         \galaxypblock
-                        \vfill
+                        \vskip.7cm
                         \galaxypcloudblock
-                        \vfill
+                        \vskip.7cm
                       }
                     \end{minipage}
                   \end{beamercolorbox}
@@ -66,11 +66,11 @@
                     \begin{minipage}[T]{\textwidth} % tweaks the width, makes a new \textwidth
                       \parbox[t][\innercolheight]{\textwidth}{
                         \manyfileschallengesblock
-                        \vfill
+                        \vskip.7cm
                         \jgalaxyblock
-                        \vfill
+                        \vskip.7cm
                         \toolextensionsblock
-                        \vfill
+                        \vskip.7cm
                       }
                     \end{minipage}
                   \end{beamercolorbox}
@@ -79,13 +79,13 @@
               \vfill
               \begin{block}{Handling Large Numbers of Files - Multiple File Datasets}
                 \begin{columns}
-                  \begin{column}{.30\textwidth}
+                  \begin{column}{.24\textwidth}
                     \workflowlimitfigs
                   \end{column}
-                  \begin{column}{.43\textwidth}
+                  \begin{column}{.35\textwidth}
                     \multiplefiledatasetsdesc
                   \end{column}
-                  \begin{column}{.25\textwidth}
+                  \begin{column}{.39\textwidth}
                     \openmsfig
                   \end{column}
                 \end{columns}

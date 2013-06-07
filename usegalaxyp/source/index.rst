@@ -8,6 +8,7 @@ Galaxy-P User Guide
    :maxdepth: 2
 
    sections/introduction
+   sections/galaxyp_101
    sections/ftp
    sections/multiple_file_datasets
    sections/peptideshaker
