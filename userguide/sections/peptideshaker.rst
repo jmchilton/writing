@@ -1,6 +1,9 @@
 
-A Simple Worklfow using PeptideShaker
+A Simple Worklfow using peptide-shaker
 -------------------------------------
+
+This section is a simple walkthrough of using Galaxy-P and multiple
+file datasets to analysis a collection of RAW files using peptide-shaker_
 
   .. image:: ../../images/ftp_multifile_upload_tool.png
 
@@ -17,6 +20,7 @@ A Simple Worklfow using PeptideShaker
   .. image:: ../../images/peptideshaker_table.png
 
 
+.. _peptide-shaker: http://code.google.com/p/peptide-shaker/
 .. _ATP: http://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD000141
 .. _ATP_FTP: ftp://ftp.pride.ebi.ac.uk/2013/04/PXD000141
 

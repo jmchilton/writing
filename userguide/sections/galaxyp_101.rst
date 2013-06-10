@@ -2,7 +2,7 @@
 Galaxy-P 101 - Building Up and Using a Proteomics Workflow
 ============================================================
 
-This section is largely based on the `Galaxy 101 <https://main.g2.bx.psu.edu/u/aun1/p/galaxy101>`_ maintained at Penn State.
+This section is heavily inspired by the `Galaxy 101 <https://main.g2.bx.psu.edu/u/aun1/p/galaxy101>`_ maintained at Penn State by the `core Galaxy team <http://wiki.galaxyproject.org/GalaxyTeam>`.
 
 In this walkthrough we will introduce you to basics of Galaxy-P:
 
