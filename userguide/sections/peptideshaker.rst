@@ -7,6 +7,8 @@ file datasets to analysis a collection of RAW files using peptide-shaker_
 
   .. image:: ../../images/ftp_multifile_upload_tool.png
 
+Text here!
+
   .. image:: ../../images/peptideshaker_dataset_imported.png
 
   .. image:: ../../images/peptideshaker_database_download.png  
