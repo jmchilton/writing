@@ -134,7 +134,7 @@ Our next step is to create a decoy database out of the merged file (3rd history 
 
 For this, go to Tools -> FASTA Manipulation --> 'Create Decoy Database'.
 
-.. image:: ../../images/101_11.png    
+.. image:: ../../images/101_83.png    
 
 Ensure that history item 3 shows up in the “FASTA Input:” box and that the box for “Include original entries in output database:” is checked. Change Decoy prefix to REV_.
 
@@ -307,7 +307,7 @@ In order to calculate FDR at the peptide level, we will first convert
 PeptideProphet file to a tabular format.
 
 For this, go to Tools --> ProtK (under PROTEOMICS: COMMUNITY) --> Convert
-PepXML to Table. Ensure that the peptide prophet file in the history (peptide
+PepXML to Tabular. Ensure that the peptide prophet file in the history (peptide
 prophet file – 8th in the list) is highlighted.
 
 .. image:: ../../images/101_33.png
