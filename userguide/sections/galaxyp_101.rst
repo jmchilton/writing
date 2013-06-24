@@ -83,10 +83,10 @@ Using Protein Database Downloader
 ----------------------------------
 
 Now we get our search database. First thing we will do is to go to Tools -->
-Proteomics: Galaxy-P --> Data Source. Then click on Protein Database
+Proteomics: Galaxy-P --> Get Data. Then click on Protein Database
 Downloader.
 
-.. image:: ../../images/101_3.png
+.. image:: ../../images/101_82.png
    :scale: 50 %
 
 Since we are going to analyze a human dataset, select human database along with isoforms.
