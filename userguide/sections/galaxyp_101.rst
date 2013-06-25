@@ -307,7 +307,7 @@ In order to calculate FDR at the peptide level, we will first convert
 PeptideProphet file to a tabular format.
 
 For this, go to Tools --> ProtK (under PROTEOMICS: COMMUNITY) --> Convert
-PepXML to Tabular. Ensure that the peptide prophet file in the history (peptide
+PepXML to Table. Ensure that the peptide prophet file in the history (peptide
 prophet file – 8th in the list) is highlighted.
 
 .. image:: ../../images/101_33.png
