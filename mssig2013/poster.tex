@@ -1,59 +1,127 @@
 \documentclass[final]{beamer}
 \mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
-  \usetheme{Berlin}    %% you should define your own theme e.g. for big headlines using your own logos 
+  \usetheme{I6pd}    %% you should define your own theme e.g. for big headlines using your own logos 
 }
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath,amsthm, amssymb, latexsym}
 \usepackage{array,booktabs,tabularx}
+\usepackage{graphicx}
+\usepackage{hyperref}
 \usefonttheme[onlymath]{serif}
-\boldmath
-\usepackage[orientation=landscape,size=custom,width=100,height=100,scale=2,debug]{beamerposter}
-\title[Innovative, Reproducible MS-Based Proteomic Informatics in the Cloud for Emerging Applications with Galaxy-P and CloudBioLinux]{}
-\author[John M. Chilton; James E. Johnson; Ebbing P. de Jong; Getiria Onsongo; Benjamin J.
-Lynch; Pratik D. Jagtap; Timothy J Griffin]{}
-\institute[]{University of Minnesota Supcomputing Institute}
+\boldmath 
+\usepackage[orientation=landscape,size=custom,width=116,height=114,scale=1.67,debug]{beamerposter}
+\title{Innovative, Reproducible MS-Based Proteomic Informatics in the Cloud for Emerging Applications with Galaxy-P and CloudBioLinux}
+\author[]{John M. Chilton\textsuperscript{1*}, James E. Johnson\textsuperscript{1}, Ebbing P. de Jong\textsuperscript{2}, Getiria Onsongo \textsuperscript{1}, Benjamin J. Lynch\textsuperscript{1},  Pratik D. Jagtap\textsuperscript{1},  Timothy J Griffin\textsuperscript{2}}
+\institute[]{\textsuperscript{1}University of Minnesota Supcomputing Institute, \textsuperscript{2}University of Minnesota}
 \date{June 10th, 2013}
 
-\newlength{\columnheight}
-\setlength{\columnheight}{105cm}
+\usepackage{poster2013}
+\usepackage{galaxyextensionscontent}
+
+\setlength{\columnheight}{99cm}
+
 
 \begin{document}
 \begin{frame}
   \begin{columns}
-
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.95\textwidth}  % tweaks the width, makes a new \textwidth
+        \begin{minipage}[T]{.99\textwidth}  % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
-            \begin{block}{Galaxy-P Overview}
+            \flexblock{Galaxy}{
+              The Galaxy framework (http://galaxyproject.org/) is a popular and widely cited platform in the
+              genomics community.
               \begin{itemize}
-              \item Built on Galaxy framework - popular and widely cited in the genomics community.
-                \begin{itemize}
-                  \item Open source, web-based platform.
-                  \item Build complex, reproduible 
-                \end{itemize}
-              \item Integrated dozens of tools for proteomic analysis.
-              \item Built complex workflows for protein identification, quantification, and proteogenomic analysis.
+                \item Open source, web-based platform for building complex, reproducible bioinformatics workflows.
+                \item Designed to address "Software accessibility and usability", "Analytical transparency", "Reproducibility", 
+                "Scalability", and "Share-ability", many of the same problems we face with mass spec based informatics.
               \end{itemize}
-            \end{block}
+            }
             \vfill
+            \flexblock{Galaxy-P}{
+              \begin{columns}
+                \begin{column}{.49\textwidth}
+                  Galaxy-P is our extension of the Galaxy platform for mass spec and multi-omic data analysis. So far we have:
+                  \begin{itemize}
+                    \item Integrated and developed of tools for proteomic analysis - including PeptideShaker, various OpenMS tools, msconvert, and many others.*
+                    \item Built complex workflows for protein identification, 
+                      quantification, proteogenomic, and metaproteomic analysis.
+                  \end{itemize}
+                  \vskip1cm
+                  \small{*The Galaxy tool shed contains additional commercial (Scaffold and ProteinPilot) and Windows-only (MaxQuant) tool wrappers 
+                    we developed but that are not available in our cloud image.
+                  }
+                \end{column}
+                \begin{column}{.49\textwidth}
+                  \begin{figure}
+                    \fleximage{0.98}{galaxyp_screenshot.png}
+                    \caption{Try out our public server at https://usegalaxyp.org and find instructions for deploying your own at http://getgalaxyp.org.}
+                  \end{figure}
+                \end{column}
+              \end{columns}              
+            }
+            \vfill
+              \begin{block}{Galaxy-P Core Framework Extensions}
+                \begin{columns}
+                  \begin{column}{.23\textwidth}
+                    \begin{figure}
+                      \fleximage{0.97}{workflow_two_inputs_cropped.png}
+                      \caption{Traditional Galaxy workflows would not allow this workflow for two inputs to be used with three inputs. Key innovation here is to group multiple files into a single dataset.}
+                    \end{figure}
+                    \begin{figure}
+                      \fleximage{0.97}{workflow_two_input_combined_cropped.png}
+                    \end{figure}  
+                  \end{column}
+                  \begin{column}{.36\textwidth}
+                    We have built optional extensions to the core framework to address the problems presented by proteomics, such as multiple file datasets to work with the large number of files resulting from mass spec data analysis.
+                    \vskip .5cm
+                    For more information on our extensions to the Galaxy framework, please see our ASMS 2013 poster on this topic (\small{http://bit.ly/galaxyp-extensions}).
+                  \end{column}
+                  \begin{column}{.37\textwidth}
+                    \begin{figure}
+                      \fleximage{0.95}{consensus_id_workflow.png}
+                      \caption{OpenMS ConsensusID workflow that can operate over any number of peak lists, this would not be possible in Galaxy without multiple file dataset extensions, nor would the proteogenomic workflow below.}
+                    \end{figure}
+                  \end{column}
+                \end{columns}
+              \end{block}      
+
+            % \begin{block}{Galaxy-P Overview}
+            %   \begin{itemize}
+            %   \item Built on Galaxy framework - popular and widely cited in the genomics community.
+            %     \begin{itemize}
+            %       \item Open source, web-based platform.
+            %       \item Build complex, reproduible workflows.
+            %     \end{itemize}
+            %   \item Integrated dozens of tools for proteomic analysis.
+            %   \item Built complex workflows for protein identification, quantification, and proteogenomic analysis.
+            %   \end{itemize}
+            % \end{block}
+            \vfill
+
             % TODO: 
-            \begin{block}{Proteogenomics Workflow for Galaxy-P}
-              Galaxy-P provides an integrated platform for every step of proteogenomic analysis.
-              \begin{itemize}
-                \item Build target database - download and translate EST databases or perform gene prediction with Augustus.
-                \item Numerous tools for identification. 
-                \item Workflow utilizing BLAST to identify novel peptides.
-                \item Tool to assess peptide-spectrum matches and visualize spectra.
-                \item Visualize identified, novel peptides on the genome.
-              \end{itemize}
+            \begin{block}{Proteogenomics Workflows in Galaxy-P}
+              \begin{columns}
+                \begin{column}{.58\textwidth}
+                  Galaxy-P provides an integrated platform for every step of proteogenomic analysis.
+                  \vskip.5cm
+                  \begin{itemize}
+                    \item Build target database - download and translate EST databases or perform gene prediction with Augustus.
+                    \item Numerous tools for identification and text manipulation.
+                    \item Workflow utilizing BLAST to identify novel peptides.
+                    \item Tool to assess peptide-spectrum matches and visualize spectra.
+                    \item Visualize identified peptides on the genome.
+                  \end{itemize}
+                \end{column}
+                \begin{column}{.35\textwidth}
+                  \begin{figure}
+                    \fleximage{0.5}{jagtap_shamelessly_seamless.png}
+                    \caption{"Shamelessly seamless" integrated proteogenomics workflow. Details in ISMB/ECCB poster - O097}
+                  \end{figure}                  
+                \end{column}
+              \end{columns}
             \end{block}
-            \vfill
-            \begin{block}{Galaxy-P in the Cloud}
-              Spin up your own cluster for Galaxy-P in the cloud.
-            \end{block}
-            \vfill
           }
         \end{minipage}
       \end{beamercolorbox}
@@ -61,26 +129,95 @@ Lynch; Pratik D. Jagtap; Timothy J Griffin]{}
 
     \begin{column}{.49\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-        \begin{minipage}[T]{.95\textwidth} % tweaks the width, makes a new \textwidth
+        \begin{minipage}[T]{.99\textwidth} % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
-            \begin{block}{CloudBioLinux}
+            \begin{block}{BioCloudCentral - Spin up your Own Galaxy-P Cluster on Amazon EC2}
+              \begin{columns}
+                \begin{column}{.29\textwidth}
+                  \begin{figure}
+                    \fleximage{.85}{biocloudcentral.png}
+                  \end{figure}              
+                \end{column}
+
+                \begin{column}{.68\textwidth}
+                  \begin{itemize}
+
+                    \item Spin up your own cluster for running Galaxy-P
+                    today at https://biocloudcentral.msi.umn.edu.
+
+                    \item All you need is your Amazon Web Services (AWS)
+                    credentials and BioCloudCentral will orchestrate the creation
+                    of a cluster on Amazon EC2 for your data analysis.
+
+                    \item Cluster is preconfigured with CloudMan, an easy-to-use
+                    interface for managing your new Amazon cluster.
+
+                    \item In addition to Galaxy-P, this cloud image comes prebundled 
+                    with the applications, programming libraries, and GUI tools described below.
+
+                  \end{itemize}
+                \end{column}
+
+              \end{columns}
+            \end{block}
+            \vfill
+            \flexblock{CloudBioLinux Applications}{
+              \begin{description}
+                \item[\textbf{Large Proteomic Tool Suites}] \hfill \\
+                  \textsl{Trans-proteomic pipeline, OpenMS, crux}
+                \item[\textbf{Database Search Tools}] \hfill \\
+                  \textsl{Myrimatch, X! Tandem, OMSSA}
+                \item[\textbf{Specialized Identification Tools}] \hfill \\
+                  \textsl{DirecTag, TagRecon, Pepitome, PepNovo}
+                \item[\textbf{Validation Tools}] \hfill \\
+                  \textsl{Percolator, Fido, Mayu, psm-eval}
+                \item[\textbf{GUI Applications}] \hfill \\
+                  \textsl{MZmine, PeptideShaker, SearchGUI, TOPPAS, PRIDE Converter, PRIDEInspector}
+                \item[\textbf{Programming Environments}] \hfill \\
+                  \textsl{pyteomics, mspire, R (w/xcms, mzR, FactoMineR, caret, ggplot2, VennDiagram...)}
+                \item[\textbf{Bioinformatics}] \hfill \\
+                  \textsl{NCBI Blast+, EMBOSS, Augustus, peptide-to-gff, ...}
+              \end{description}
+            }
+            \vfill            
+            \begin{block}{CloudBioLinux}            
               \begin{itemize}
-                \item Platforms for systems biology like Galaxy-P must bring together many diverse bioinformatic tools. Installing, configuring, and maintaining these tools is a real challenge.
-                \item CloudBioLinux provides a 
+
+                \item The above cloud image as well as our internal and public
+                Galaxy-P servers are built with CloudBioLinux (http://cloudbiolinux.org/).
+
+                \item CloudBioLinux is an open-source
+                framework for creating fully automated installation mechanisms for
+                bioinformatics software and data.
+
+                \item We have contributed numerous extensions and enhancements to
+                CloudBioLinux to make a great environment for building mass spec data analysis
+                platforms.
+
+                \item With emerging proteomics applications such as
+                proteogenomics, it is becoming essential to build applications
+                platforms that tie together traditional proteomic analyses
+                with other bioinformatic analyses (such as sequence similarity 
+                analysis or genomic mapping). CloudBioLinux is an ideal platform 
+                for creating such platforms.
+
+                \item For more information on building mass spec and multi-omic data analysis platforms with CloudBioLinux,
+                please see our ASMS 2013 poster on this topic (http://bit.ly/cloudbiolinux-asms2013).
+              \end{itemize}
             \end{block}
             \vfill
-            \begin{block}{CloudBioLinux - Desktop Tools}
-              \item OpenMS and TOPPAS
-              \item PeptideShaker and SearchGUI
-              \item MZMine
-            \end{block}
-            \vfill
-           
+            \flexblock{Acknowledgements and Thanks}{
+            \begin{itemize}
+              \item The whole Galaxy and Galaxy-P team at the Minnesota Supercomputing Institute, with special 
+                thanks to Anne-Francoise Lamblin.
+              \item Brad Chapman, Enis Afgan, Jorrit Boekel, Dannon Baker, Nate Coraor, Jeremy Goecks, Ira Cooke, and the rest of the Galaxy and CloudBioLinux communities.
+              \item This work is funded by the NSF. 
+            \end{itemize}
+            }
           }
         \end{minipage}
       \end{beamercolorbox}
-    \end{column}              
-
-  \end{columns}   
+    \end{column}
+  \end{columns}
 \end{frame}
 \end{document}
