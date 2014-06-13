@@ -1,0 +1,80 @@
+%\documentclass[notes,handout]{beamer}
+\documentclass[]{beamer}
+\usepackage{amsmath,amsthm,ifthen}
+\usepackage{uofmtheme}
+\usepackage{pgfpages}
+\usepackage{graphicx}
+\usepackage{galaxyextensionscontent}
+\usepackage{cloudcomputingcontent}
+\usepackage{array,booktabs,tabularx}
+
+\newcommand {\flexblock}[2] {
+    \frame{
+    \frametitle{#1}
+    #2
+    }
+}
+
+\newcommand {\fleximage}[2] {
+\includegraphics[keepaspectratio,width=#1\textwidth]{../images/#2}
+}
+
+\newcommand {\screen}[1]{
+\includegraphics[keepaspectratio,width=\textwidth]{../images/#1}   
+}
+
+\newcommand {\screenh}[1]{
+    \begin{center}
+        \includegraphics[keepaspectratio,height=.9\textheight]{../images/#1}   
+    \end{center}
+}
+
+\title{Galaxy-P: Beyond Proteomics}
+\author{John Chilton}
+
+
+\begin{document}
+\frame{\titlepage}
+\note[] {
+}
+
+\frame{
+    \frametitle{Three Ways to Galaxy-P}
+    usegalaxyp.org
+    getgalaxyp.org
+    biocloudcentral.msi.umn.edu
+}
+
+\frame{
+    \frametitle{Tools}
+    Helped Ira Cooke fill out the proteomics tool shed. Proteomics is now third most populate category.
+}
+
+\frame{
+    \frametitle{Workflows}
+    We have built noodly appendages for sophisticate protein identification and quantitation techniques, as well as the emerging application areas of proteogenomics and metaproteomics.
+}
+
+\frame{
+    \frametitle{Beyond Proteomics?}
+
+}
+
+\frame{
+    \frametitle{LWR}
+    Run Galaxy jobs on Windows machines.
+    \begin{itemize}
+        \item Galaxy-style Stack (Paste-based Python application).
+        \item Secure.
+        \item Available in Galaxy today, just another job destination.
+        \item Well documented (https://lwr.readthedocs.org/).
+        \item Cross-platform.
+    \end{itemize}
+}
+
+\frametitle{
+    \frametitle{LWR - }
+}
+
+
+\end{document}
