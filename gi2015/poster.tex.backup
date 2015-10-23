@@ -1,0 +1,70 @@
+\documentclass[final]{beamer}
+\mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
+  \usetheme{I6pd}    %% you should define your own theme e.g. for big headlines using your own logos 
+}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usepackage{array,booktabs,tabularx}
+\usepackage{graphicx}
+\usefonttheme[onlymath]{serif}
+\boldmath
+\usepackage[orientation=landscape,size=custom,width=176,height=105,scale=1.67,debug]{beamerposter}
+\title{\huge Building More Expressive Galaxy Workflows}
+\author[Chilton, Galaxy Project]{John Chilton.\textsuperscript{1} and The Galaxy Team}
+\institute[]{\textsuperscript{1}Department of Biochemistry and Molecular Biology, The Pennsylvania State University, PA, USA}
+\date{October 29th, 2015}
+
+\usepackage{poster2013}
+\usepackage{workflows}
+
+%             \begin{columns}
+%               \begin{column}{.54\textwidth} % Best fit, .48, .02, .48 | .54, .02, .42
+%                 \cblappsblock
+%               \end{column}
+%               \begin{column}{.00\textwidth}
+%               \end{column}
+%               \begin{column}{.425\textwidth}
+%                 \cblplsblock
+%               \end{column}
+%             \end{columns}
+
+
+\begin{document}
+\begin{frame}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.97\textwidth}  % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{
+            \galaxyintroblock
+            \vfill
+            \workflowsblock
+            \vfill
+            \collectionsblock
+            \vfill
+            \rnaseqbloc
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}
+
+    \begin{column}{.5\textwidth}
+      \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+        \begin{minipage}[T]{.98\textwidth} % tweaks the width, makes a new \textwidth
+          \parbox[t][\columnheight]{\textwidth}{
+            \cblplatformblock
+            \vfill
+            \cblwineblock
+            \vfill
+            \cblgalaxypblock
+            \vfill
+            \cblswiftblock            
+          }
+        \end{minipage}
+      \end{beamercolorbox}
+    \end{column}              
+
+  \end{columns}   
+\end{frame}
+\end{document}

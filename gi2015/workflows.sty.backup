@@ -1,0 +1,273 @@
+\ProvidesPackage{cloudcomputingcontent}
+
+\def\cloudintroblock{
+  \flexblock{Galaxy}{
+
+    \begin{itemize}
+
+      \item Galaxy is a data analysis platform used to integrate diverse command-line utilities into
+      a unified and user friendly web-based interface. A salient feature of Galaxy is that it allows
+      researchers to extract analysis histories as examples out into reusable workflows.
+            
+      \end{itemize}
+  }
+}
+
+\def\workflowsblock{
+  \flexblock{Workflows}{
+
+    \begin{itemize}
+
+      \item A salient feature of Galaxy is that it allows researchers to extract analysis histories as examples
+      out into reusable workflows. Despite the popularity of this feature, the kinds of workflows that could be
+      expressed by Galaxy in the past have had critical limitations. Perhaps chief among these are that the workflow
+      engine planned out every job right at submission time (leaving little room for dynamic computation) and
+      Galaxy workflows have required a static number of inputs. Many common and relatively simple analyses in
+      bioinformatics require running a variable number of inputs across identical processing steps (“mapping”)
+      and then combining or collecting these results into a merged output (“reducing”). Likewise - many requested
+      advanced features such as pausing workflows, splitting inputs up into multiple datasets, and conditionals all
+      require the re-evaluation of workflows overtime. This work will discuss how we have started addressing
+      these limitations.
+            
+      \end{itemize}
+  }
+}
+
+\def\collectionsblock{
+  \flexblock{Dataset Collections}{
+
+    \begin{itemize}
+
+      \item 
+
+      Galaxy dataset collections allow gathering datasets into potentially nested hierarchies of lists and pairs and
+      operating on them as units. Pre-existing Galaxy tools can be used without modification to “map” operations across
+      dataset collections to produce new collections. Likewise tools that consume many datasets can be readily used to
+      “reduce” these collections. For newly developed tools - a wide range of extensions to Galaxy tooling format exist
+      to consume and produce dataset collections. In addition to presenting these additions to Galaxy, extensions to the
+      workflow system to tie together these analyses and innovative UI elements such as the paired list dataset collection
+      builder will be presented.
+      
+      \end{itemize}
+  }
+}
+
+
+\def\rnaseqblock{
+  \flexblock{Dataset Collections}{
+    \begin{columns}
+      \begin{column}{.22\textwidth}
+        \begin{figure}
+          \fleximage{.74}{cufflinks_workflows.png}
+        \end{figure}              
+      \end{column}
+
+      \begin{column}{.77\textwidth}
+	RNA Seq
+      \end{column}
+
+    \end{columns}
+
+  }
+}
+
+
+
+\def\cblappsblock{
+  \flexblock{Applications}{
+    \begin{description}
+       \item[\textbf{Large Proteomic Tool Suites}] \hfill \\
+        \textsl{Trans proteomic-pipeline, OpenMS, crux}
+      \item[\textbf{Database Search Tools}] \hfill \\
+        \textsl{Myrimatch, X! Tandem, OMSSA, ...}
+      \item[\textbf{Specialized Identification Tools}] \hfill \\
+        \textsl{TagRecon, PepNovo, ...}
+      \item[\textbf{Validation Tools}] \hfill \\
+        \textsl{Percolator, Fido, Mayu, ...}
+      \item[\textbf{Bioinformatics}] \hfill \\
+        \textsl{NCBI Blast+, EMBOSS, Augustus, ...}
+      \item[\textbf{Tools Developed at the University of Minnesota}]  \hfill \\
+        \textsl{iQuant (isobaric quantification), psm-eval (flexible re-evaluation of identified peptide-spectrum matches), peptide-to-gff (map peptides for genomic visualization)}
+    \end{description}
+  }                
+}
+
+\def\cblplsblock{
+  \flexblock{Programming Libraries}{
+
+    \begin{description}
+       \item[\textbf{pyteomics}] \hfill \\
+        \textsl{"Pyteomics provides a growing set of modules to facilitate the most common tasks in proteomics data analysis..." }\\
+        https://pypi.python.org/pypi/pyteomics
+      \item[\textbf{mspire}] \hfill \\
+        \textsl{"Mspire is a full featured library for working with mass spectrometry data, particularly proteomic, metabolomic and lipidomic data sets."} \\
+        https://github.com/princelab/mspire
+      \item[\textbf{R}] \hfill \\
+        Our preconfigured CloudBioLinux image comes preinstalled with various useful R libraries proteomic data analysis
+        ({\textsl e.g. xcms, mzR, FactoMineR, caret, ggplot2, VennDiagram, ...})
+    \end{description}
+  }    
+}
+
+\def\cblguiappdesc{
+  The example CloudBioLinux environment comes bundled with user-friendly graphical Desktop applications as well, including:
+  \begin{itemize}
+    \item MZmine
+    \item PeptideShaker and SearchGUI
+    \item TOPPAS
+    \item PRIDE Converter
+    \item PRIDEInspector
+  \end{itemize}
+}
+
+\def\cblguiappsblock{
+  \flexblock{Graphical Applications}{
+    \begin{columns}
+      \begin{column}{.34\textwidth}
+        \begin{figure}
+          \fleximage{0.55}{peptideshaker_cloud.png} \\
+          \caption{PeptideShaker running in a CloudBioLinux environment. More information on PeptideShaker can be found at http://code.google.com/p/peptide-shaker/}
+        \end{figure}                   
+      \end{column}
+      \begin{column}{.29\textwidth}
+        \cblguiappdesc
+      \end{column}
+      \begin{column}{.34\textwidth}
+        \begin{figure}
+          \fleximage{0.55}{toppas_cloud.png}
+          \caption{OpenMS TOPPAS workflow editor running in a CloudBioLinux environment. More information on OpenMS can be found at http://open-ms.sourceforge.net/ }
+        \end{figure}
+      \end{column}              
+    \end{columns}
+  } 
+}
+
+\def\cblplatformblock{
+  \flexblock{CloudBioLinux for Platform Development}{
+    Check out you own copy of CloudBioLinux on Github at
+    https://github.com/chapmanb/cloudbiolinux and build a customized
+    flavor for your mass spec data analysis platform.
+
+    \begin{itemize}
+      \item Simple YAML data files describe what software, libraries, 
+      and data to install.
+
+      \item Integrate your own applications (big or small) using native OS
+      packages, fabric functions, Puppet modules, or Chef cookbooks.
+    \end{itemize}
+  }
+}
+
+\def\cblwinedesc{
+  \begin{itemize}
+
+    \item Wine is a compatibility layer allowing many Windows applications
+    to run other other operating systems (such as Linux). 
+    
+    \item We have built a high level framework for packaging and
+    redistributing Wine enviornments. https://github.com/jmchilton/proteomics-wine-env \hfill \\
+
+    \begin{itemize}
+      \item Includes documentation for creating such a Wine environment
+      and configuring msconvert to work with vendor libraries.
+    \end{itemize}
+
+    \item CloudBioLinux includes support for distributing such
+    environments and creating friendly wrapper scripts along with install
+    procedures for proteomics programs such as msconvert and multiplierz.
+
+  \end{itemize}  
+}
+
+\def\cblwinefig[#1]{
+  \begin{figure}
+    \fleximage{#1}{morpheus_screenshot.png} 
+    \caption{Screenshot of the Windows-only software Morpheus running under Linux using Wine. More information on the Morpheus can be found here: \small{http://www.chem.wisc.edu/~coon/software.php}}
+  \end{figure}  
+}
+
+\def\cblwineblock{
+  \flexblock{CloudBioLinux as a Platform - wine}{
+    \begin{columns}
+      \begin{column}{.59\textwidth}
+        \cblwinedesc
+      \end{column}
+      \begin{column}{.40\textwidth}
+        \cblwinefig[.5]
+      \end{column}
+    \end{columns}
+  }                
+}
+
+\def\cblgalaxypdesc{
+  \begin{itemize}
+
+    \item  Galaxy-P (http://getgalaxyp.org) is an extension to the popular Galaxy (http://galaxyproject.org) framework to 
+    enable proteomics workflows.
+
+    \item The example image that can be launched with CloudBioLinux comes preconfigured with 
+    an a subset of Galaxy-P.
+
+    \item The multi-omics systems biology nature of Galaxy-P demonstrates the utility of building on 
+    CloudBioLinux and the complexity of Galaxy-P demonstrates the necessity for automating such 
+    deployments.
+
+    \item Our internal and publicly accessible Galaxy-P servers
+    (https://usegalaxyp.org) are both hosted on a private OpenStack cloud
+    infrastructure and running images built with CloudBioLinux.
+
+  \end{itemize}  
+}
+
+\def\cblgalaxypblock{
+  \flexblock{CloudBioLinux as a Platform - Galaxy-P}{
+
+    \begin{columns}
+      \begin{column}{.44\textwidth}
+        \begin{figure}
+          \fleximage{0.80}{galaxyp_screenshot.png}
+        \end{figure}
+      \end{column}
+
+      \begin{column}{.55\textwidth}
+        \cblgalaxypdesc
+      \end{column}
+
+
+    \end{columns}
+  }
+}
+
+\def\cblswiftdesc{
+  \begin{itemize}
+
+    \item  Swift (https://github.com/romanzenka/swift) is a web interface and workflow engine
+    capable of running Mascot, Sequest, X!Tandem, Myrimatch, OMSSA, Scaffold and IDPicker +
+    extra utilities like msmseval. It provides an unified interface for submitting searches
+    through all the engines simultaneously. 
+
+    \item The CloudBioLinux version of Swift is fully open-source, utilizing only the free tools like
+    msconvert, X!Tandem, Myrimatch and IDPicker. This enables Swift to run on as many machines
+    as possible, using Sun Grid Engine for job submission.
+
+  \end{itemize}  
+}
+
+\def\cblswiftblock{
+  \flexblock{CloudBioLinux as a Platform - Swift}{
+
+    \begin{columns}
+
+      \begin{column}{.45\textwidth}
+        \cblswiftdesc
+      \end{column}
+
+      \begin{column}{.54\textwidth}
+        \begin{figure}
+          \fleximage{0.9}{swift_screenshot.png}
+        \end{figure}
+      \end{column}
+
+    \end{columns}
+  }
+}
