@@ -1,0 +1,13 @@
+\ProvidesPackage{poster2015}
+
+\newlength{\columnheight}
+\setlength{\columnheight}{100cm}
+
+\newcommand {\flexblock}[2] {
+  \begin{block}{#1}#2\end{block}
+}
+
+\newcommand {\fleximage}[2] {
+  \includegraphics[keepaspectratio,width=#1\textwidth]{../images/#2}
+}
+

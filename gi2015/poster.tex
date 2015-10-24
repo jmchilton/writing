@@ -9,13 +9,13 @@
 \usepackage{graphicx}
 \usefonttheme[onlymath]{serif}
 \boldmath
-\usepackage[orientation=landscape,size=custom,width=176,height=105,scale=1.67,debug]{beamerposter}
+\usepackage[orientation=landscape,size=custom,width=121,height=121,scale=1.9,debug]{beamerposter}
 \title{\huge Building More Expressive Galaxy Workflows}
 \author[Chilton, Galaxy Project]{John Chilton.\textsuperscript{1} and The Galaxy Team}
 \institute[]{\textsuperscript{1}Department of Biochemistry and Molecular Biology, The Pennsylvania State University, PA, USA}
 \date{October 29th, 2015}
-
-\usepackage{poster2013}
+  
+\usepackage{poster2015}
 \usepackage{workflows}
 
 %             \begin{columns}
@@ -28,7 +28,7 @@
 %                 \cblplsblock
 %               \end{column}
 %             \end{columns}
-
+  
 
 \begin{document}
 \begin{frame}
@@ -53,13 +53,13 @@
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.98\textwidth} % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
-            \cblplatformblock
+            \corephylogenomics
             \vfill
-            \cblwineblock
-            \vfill
-            \cblgalaxypblock
-            \vfill
-            \cblswiftblock            
+            \openms
+	    \vfill
+            \futurework
+	    \vfill
+            \cwl
           }
         \end{minipage}
       \end{beamercolorbox}
