@@ -2,39 +2,73 @@
 
 \def\galaxyintroblock{
   \flexblock{Galaxy}{
-
+    \begin{columns}
+      \begin{column}{.48\textwidth}
+        \begin{figure}
+          \fleximage{1.00}{galaxy_ngs.png}
+	  \end{figure}              
+      \end{column}
+      \begin{column}{.48\textwidth}
     \begin{itemize}
 
-      \item Galaxy is a data analysis platform used to integrate diverse command-line utilities into
-      a unified and user friendly web-based interface. A salient feature of Galaxy is that it allows
-      researchers to extract analysis histories as examples out into reusable workflows.
-            
+      \item Data analysis platform
+      integrating diverse command-line \textit{tools} into
+      a unified web-based interface
+
+      \item Analysis \textit{histories} tracked, provenance available,
+      and \textit{reproducibility} and sharing enabled
+
+      \item 60+ public servers designed for a variety of analysis types including usegalaxy.org
+      
+      \item Free and open source, available at getgalaxy.org
+
       \end{itemize}
+    \end{column}
+    \end{columns}
   }
 }
 
 \def\workflowsblock{
-  \flexblock{Workflows}{
+  \flexblock{Workflows and Limitations}{
+    \begin{columns}
+      \begin{column}{.48\textwidth}
+    Extract analysis histories into reusable workflows, previously had critical limitations.
 
     \begin{itemize}
 
-      \item A salient feature of Galaxy is that it allows researchers to extract analysis histories as examples
-      out into reusable workflows. Despite the popularity of this feature, the kinds of workflows that could be
-      expressed by Galaxy in the past have had critical limitations. Perhaps chief among these are that the workflow
-      engine planned out every job right at submission time (leaving little room for dynamic computation) and
-      Galaxy workflows have required a static number of inputs. Many common and relatively simple analyses in
-      bioinformatics require running a variable number of inputs across identical processing steps (``mapping'')
-      and then combining or collecting these results into a merged output (``reducing''). Likewise - many requested
-      advanced features such as pausing workflows, splitting inputs up into multiple datasets, and conditionals all
-      require the re-evaluation of workflows overtime. This work will discuss how we have started addressing
-      these limitations.
+      \item Static number of inputs. Common, relatively simple analyses in bioinformatics require running a variable number of inputs across identical processing steps (``mapping'')
+      and then combining or collecting these results into a merged output (``reducing''). 
+
+      
+      \item Workflow engine planned out every job right at submission
+      time (leaving little room for dynamic computation).
+      Many requested advanced features such as pausing workflows,
+      splitting inputs up into multiple datasets, and conditionals all
+      require the re-evaluation of workflows overtime.
             
       \end{itemize}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \begin{figure}
+        \fleximage{1.00}{data_flow_cropped.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
   }
 }
 
 \def\collectionsblock{
   \flexblock{Dataset Collections}{
+    \begin{columns}
+      \begin{column}{.48\textwidth}
+        \begin{figure}
+          \fleximage{1.00}{cufflinks_workflow.png}
+        \end{figure}
+        Common RNA-Seq Galaxy workflow using the tuxedo suite
+        updated to use dataset collections.
+      \end{column}
+      \begin{column}{.48\textwidth}
+
       Galaxy dataset collections allow gathering datasets into potentially nested hierarchies of lists and pairs and
       operating on them as units. Pre-existing Galaxy tools can be used without modification to ``map'' operations across
       dataset collections to produce new collections. Likewise tools that consume many datasets can be readily used to
@@ -42,28 +76,11 @@
       to consume and produce dataset collections. In addition to presenting these additions to Galaxy, extensions to the
       workflow system to tie together these analyses and innovative UI elements such as the paired list dataset collection
       builder will be presented.
-  }
-}
-
-
-\def\rnaseqblock{
-  \flexblock{RNA-Seq Workflows}{
-    \begin{columns}
-      \begin{column}{.48\textwidth}
-        \begin{figure}
-          \fleximage{1.00}{cufflinks_workflow.png}
-        \end{figure}              
-      \end{column}
-
-      \begin{column}{.48\textwidth}
-	RNA Seq
       \end{column}
 
     \end{columns}
-
   }
 }
-    
 
 \def\corephylogenomics{
   \flexblock{Phylogenomics SNP pipeline}{
