@@ -16,7 +16,7 @@
       a unified web-based interface
 
       \item Analysis \textit{histories} tracked, provenance available,
-      and \textit{reproducibility} and sharing enabled
+      \textit{reproducibility} and sharing enabled
 
       \item 60+ public servers designed for a variety of analysis types including usegalaxy.org
       
@@ -31,7 +31,7 @@
 }
 
 \def\workflowsblock{
-  \flexblock{Workflow Limitations - Data Flow and Scheduling}{
+  \flexblock{Previous Workflow Limitations - Data Flow and Scheduling}{
     \begin{columns}
       \begin{column}{.48\textwidth}
       \begin{itemize}
@@ -87,13 +87,14 @@
 \def\rnaseqblock{
   \flexblock{Dataset Collections \& Workflows}{
     \begin{columns}
-      \begin{column}{.48\textwidth}
+      \begin{column}{.46\textwidth}
         Collections solve the data flow problem.
         \begin{figure}
-           \fleximage{1}{workflow_editor.png}
+           %\fleximage{1}{workflow_editor.png}
+           \fleximage{1}{workflow_editor_cropped.png}
         \end{figure}              
       \end{column}
-      \begin{column}{.48\textwidth}
+      \begin{column}{.46\textwidth}
         \begin{figure}
            \fleximage{1}{cufflinks_workflow.png}
         \end{figure}              
@@ -106,13 +107,13 @@
 \def\corephylogenomics{
   \flexblock{Phylogenomics SNP Pipeline}{
     \begin{columns}
-      \begin{column}{.62\textwidth}
+      \begin{column}{.67\textwidth}
         \begin{figure}
           \fleximage{1.00}{workflow_core_phylogenomics.png}
         \end{figure}              
       \end{column}
 
-      \begin{column}{.34\textwidth}
+      \begin{column}{.31\textwidth}
 	Implemented by Aaron Petkau, Gary Van Domselaar, Philip Mabon, and Lee Katz.
 	Used to assist in outbreak response for food-born illness by the public
 	health agency of Canada. Processes hundreds of paired strains at a time. http://bit.ly/gcc2015irida
@@ -145,7 +146,7 @@
 }
 
 \def\workflowrewrite{
-  \flexblock{Real Workflow Scheduling}{
+  \flexblock{Implemented Real Workflow Scheduling}{
     \begin{itemize}
       \item \textit{Stateful models} allowing re-evaluating workflows over time.
       \item Large and complex workflows will now be \textit{evaluated in the background}.
@@ -160,12 +161,12 @@
     \begin{columns}
       \begin{column}{.58\textwidth}      
         \begin{itemize}
-          \item Tools that output applications (important for
+          \item Tools that output collections (important for
           parallelization)
           \item Pausing workflows
           \item Workflows that orchestrate things beyond Galaxy
           datsets (e.g. reference data http://bit.ly/gcc2015lessclick)
-          \item Common Workflow Language
+          \item Filtering collections as part of a workflow
         \end{itemize}
       \end{column}
       \begin{column}{.40\textwidth}
@@ -209,15 +210,15 @@
   \flexblock{Common Workflow Language}{
     \begin{itemize}
       \item Support planned for many platforms - including Galaxy,
-      Arvados, Galaxy, and Seven Bridges Genomics, and Taverna.
+      Arvados, Galaxy, Seven Bridges Genomics, and Taverna.
       \item Portable means of representing and invoking
-      command line tools which was then the basis for
+      command line tools which is then the basis for
       portable workflow descriptions.
       \item A YAML description validated by an Apache Avro schema and
       that can be interpreted as an RDF graph using JSON-LD.
       \item Re-using existing formats and ontologies.
-      \item Compatible with Wf4Ever descriptions.
-      \item Second draft of the Common Workflow Language specification past March, final 1.0 specification scheduled for next April.
+      \item Compatible with Wf4Ever descriptions (www.wf4ever-project.org/).
+      \item Second draft of the Common Workflow Language specification released in March, final 1.0 specification scheduled for next April.
     \end{itemize}
    }
 }
@@ -226,10 +227,10 @@
   \flexblock{Common Workflow Language \& Galaxy}{
     \begin{itemize}
       \item Work in progress at https://github.com/common-workflow-language/galaxy.
-      \item Beta test running tool descriptions in Galaxy and integration with Galaxy's tool development SDK Planemo.
-      \item Workflow support will be added in 2016 and will require 
-      the extensions presented here - collections and real workflow 
-      scheduling.
+      \item Beta test running tool descriptions in Galaxy
+      \item Integration with Galaxy's tool development application Planemo.
+      \item Workflow support in 2016 and will require 
+      the extensions presented here (collections \& scheduling).
     \end{itemize}
    }
 }
