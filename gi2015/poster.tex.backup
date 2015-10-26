@@ -43,23 +43,21 @@
             \vfill
             \collectionsblock
             \vfill
-            \rnaseqbloc
+            \rnaseqblock
           }
         \end{minipage}
       \end{beamercolorbox}
-    \end{column}
+      \end{column}
 
     \begin{column}{.5\textwidth}
       \begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
         \begin{minipage}[T]{.98\textwidth} % tweaks the width, makes a new \textwidth
           \parbox[t][\columnheight]{\textwidth}{
-            \cblplatformblock
+            \corephylogenomics
             \vfill
-            \cblwineblock
-            \vfill
-            \cblgalaxypblock
-            \vfill
-            \cblswiftblock            
+            \openms
+	    \vfill
+            \futurework
           }
         \end{minipage}
       \end{beamercolorbox}

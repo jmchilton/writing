@@ -1,7 +1,7 @@
 \ProvidesPackage{workflows}
 
 \def\galaxyintroblock{
-  \flexblock{Galaxy}{
+  \flexblock{Galaxy \& Workflows}{
     \begin{columns}
       \begin{column}{.48\textwidth}
         \begin{figure}
@@ -22,6 +22,8 @@
       
       \item Free and open source, available at getgalaxy.org
 
+      \item Extract analysis histories into reusable workflows
+
       \end{itemize}
     \end{column}
     \end{columns}
@@ -29,24 +31,21 @@
 }
 
 \def\workflowsblock{
-  \flexblock{Workflows and Limitations}{
+  \flexblock{Workflow Limitations - Data Flow and Scheduling}{
     \begin{columns}
       \begin{column}{.48\textwidth}
-    Extract analysis histories into reusable workflows, previously had critical limitations.
+      \begin{itemize}
 
-    \begin{itemize}
+        \item Static number of inputs. Common, simple analyses in bioinformatics require running a variable number of inputs across identical processing steps (``mapping'')
+        and collecting these results into a merged output (``reducing'').
 
-      \item Static number of inputs. Common, relatively simple analyses in bioinformatics require running a variable number of inputs across identical processing steps (``mapping'')
-      and then combining or collecting these results into a merged output (``reducing''). 
+        \item Workflow engine planned out every job right at submission
+        time (allowing no dynamic computation).
+        Many advanced features such as pausing workflows,
+        splitting for parallelization, and conditionals all
+        require the re-evaluation of workflows overtime.
 
-      
-      \item Workflow engine planned out every job right at submission
-      time (leaving little room for dynamic computation).
-      Many requested advanced features such as pausing workflows,
-      splitting inputs up into multiple datasets, and conditionals all
-      require the re-evaluation of workflows overtime.
-            
-      \end{itemize}
+        \end{itemize}
     \end{column}
     \begin{column}{.48\textwidth}
       \begin{figure}
@@ -61,42 +60,62 @@
   \flexblock{Dataset Collections}{
     \begin{columns}
       \begin{column}{.48\textwidth}
-        \begin{figure}
-          \fleximage{1.00}{cufflinks_workflow.png}
-        \end{figure}
-        Common RNA-Seq Galaxy workflow using the tuxedo suite
-        updated to use dataset collections.
+      \begin{itemize}
+        \item Group datasets into nested hierarchies of lists and pairs.
+
+        \item ``Map`` unmodified Galaxy tools across collections.
+
+        \item ``Reduce`` collections using tools that consume multiple
+        datasets.
+
+        \item Innovative UI elements including collection builders.
+
+        \item Sample tracking over complex analyses.
+
+      \end{itemize}
       \end{column}
       \begin{column}{.48\textwidth}
-
-      Galaxy dataset collections allow gathering datasets into potentially nested hierarchies of lists and pairs and
-      operating on them as units. Pre-existing Galaxy tools can be used without modification to ``map'' operations across
-      dataset collections to produce new collections. Likewise tools that consume many datasets can be readily used to
-      ``reduce`` these collections. For newly developed tools - a wide range of extensions to Galaxy tooling format exist
-      to consume and produce dataset collections. In addition to presenting these additions to Galaxy, extensions to the
-      workflow system to tie together these analyses and innovative UI elements such as the paired list dataset collection
-      builder will be presented.
+        \begin{figure}
+          \fleximage{1.00}{workflow_collection_creator.png}
+        \end{figure}
       \end{column}
 
     \end{columns}
   }
 }
 
-\def\corephylogenomics{
-  \flexblock{Phylogenomics SNP pipeline}{
+\def\rnaseqblock{
+  \flexblock{Dataset Collection Workflows}{
     \begin{columns}
       \begin{column}{.48\textwidth}
+        Collections solve the data flow problem.
+        \begin{figure}
+           \fleximage{0.9}{workflow_editor.png}
+        \end{figure}              
+      \end{column}
+      \begin{column}{.48\textwidth}
+        \begin{figure}
+           \fleximage{0.8}{cufflinks_workflow.png}
+        \end{figure}              
+        Canonical Galaxy RNA-Seq tuxedo workflow with collections.
+      \end{column}
+    \end{columns}
+  }
+}
+
+\def\corephylogenomics{
+  \flexblock{Phylogenomics SNP Pipeline}{
+    \begin{columns}
+      \begin{column}{.62\textwidth}
         \begin{figure}
           \fleximage{1.00}{workflow_core_phylogenomics.png}
         \end{figure}              
       \end{column}
 
-      \begin{column}{.48\textwidth}
-	by Aaron Petkau, Gary Van Domselaar, Philip Mabon, and Lee Katz.
+      \begin{column}{.34\textwidth}
+	Implemented by Aaron Petkau, Gary Van Domselaar, Philip Mabon, and Lee Katz.
 	Used to assist in outbreak response for food-born illness by the public
-	health agency of Canada. Process hundreds of paired strains at a time.
-	
-	http://bit.ly/gcc2015irida
+	health agency of Canada. Processes hundreds of paired strains at a time. http://bit.ly/gcc2015irida
       \end{column}
 
     \end{columns}
@@ -107,13 +126,13 @@
 \def\openms{
   \flexblock{OpenMS Protein Identification Workflow}{
     \begin{columns}
-      \begin{column}{.48\textwidth}
+      \begin{column}{.63\textwidth}
         \begin{figure}
           \fleximage{1.00}{workflow_openms.png}
         \end{figure}              
       \end{column}
 
-      \begin{column}{.48\textwidth}
+      \begin{column}{.35\textwidth}
 	Protein identification of mass spectrometry data using Open MS.
 	Tools and workflow by Torsten Houwaart.
 	
@@ -123,64 +142,94 @@
     \end{columns}
 
   }
+}
+
+\def\workflowrewrite{
+  \flexblock{Real Workflow Scheduling}{
+    \begin{itemize}
+      \item \textbf{Stateful models} allowing re-evaluating workflows over time.
+      \item Large and complex workflows will now be evaluated in the background.
+      \item Allow individual workflow modules to delay evaluation.
+      \item Plugin framework for describing how scheduling occurs.
+    \end{itemize}
+   }
+}
+
+\def\workflowrewriteapps{
+  \flexblock{Workflow Scheduling Applications}{
+    \begin{columns}
+      \begin{column}{.58\textwidth}      
+        \begin{itemize}
+          \item Tools that output applications (important for
+          parallelization)
+          \item Pausing workflows
+          \item Workflows that orchestrate things beyond Galaxy
+          datsets (e.g. reference data http://bit.ly/gcc2015lessclick)
+          \item Common Workflow Language
+        \end{itemize}
+      \end{column}
+      \begin{column}{.40\textwidth}
+        \begin{figure}
+          \fleximage{0.8}{parallelization_cropped.png}
+        \end{figure}              
+      \end{column}
+    \end{columns}
+   }
 }
 
 
 \def\futurework{
-  \flexblock{OpenMS Protein Identification Workflow}{
+  \flexblock{Future Work}{
     \begin{columns}
-      \begin{column}{.48\textwidth}
-        \begin{figure}
-          \fleximage{1.00}{workflow_openms.png}
-        \end{figure}              
+      \begin{column}{.44\textwidth}
+        \textbf{Expressivity}
+        \begin{itemize}
+          \item Implement new workflows modules for conditional paths
+          \item Allow interacting with workflows as first class citzens in the UI
+          \item Nested workflows
+        \end{itemize}
       \end{column}
-
-      \begin{column}{.48\textwidth}
-	Protein identification of mass spectrometry data using Open MS.
-	Tools and workflow by Torsten Houwaart.
-	
-	http://bit.ly/gcc2015rna
+      \begin{column}{.52\textwidth}
+        \textbf{Scaling}
+        \begin{itemize}
+          \item Optimize database interactions
+          \item Smarter recover and retry due to different kinds of
+                failures
+          \item Optimize disk usage - \textit{streaming}
+          \item Leverage more diverse and bigger compute and
+                storage
+        \end{itemize}
       \end{column}
-
     \end{columns}
-
   }
 }
-
 
 \def\cwl{
 
   \flexblock{Common Workflow Language}{
-
-Engineers from leading bioinformatics platform
-teams (Curoverse, Galaxy Team, and Seven Bridges Genomics) and a tool author (Michael R. Crusoe /
-khmer project) started working together at the BOSC 2014 Codefest with an initial focus on developing
-a portable means of representing, sharing and invoking command line tools which was then the basis for
-portable workflow descriptions. The group placed high value on re-using existing formats and ontologies.
-
-On March 31st, 2015 the group released their second draft of the Common Workflow Language specification.
-The serialized form is a YAML document that is validated by an Apache Avro schema and can be interpreted
-as an RDF graph using JSON-LD. The documents are also valid Wf4Ever ''wfdesc`` descriptions after a simple
-transformation. Future drafts will include the use of the EDAM ontology to describe the tools enabling
-discovery via the ELIXIR tool registry.
+    \begin{itemize}
+      \item Support planned for many platforms - including Galaxy,
+      Arvados, Galaxy, and Seven Bridges Genomics, and Taverna.
+      \item Portable means of representing and invoking
+      command line tools which was then the basis for
+      portable workflow descriptions.
+      \item Re-using existing formats and ontologies.
+      \item Second draft of the Common Workflow Language specification in March.
+      \item A YAML description validated by an Apache Avro schema and
+      that can be interpreted as an RDF graph using JSON-LD.
+      \item The documents are also valid Wf4Ever ''wfdesc`` descriptions after a simple transformation.
+    \end{itemize}
    }
 }
+\def\cwlingalaxy{
 
-\def\cblswiftblock{
-  \flexblock{CloudBioLinux as a Platform - Swift}{
-
-    \begin{columns}
-
-      \begin{column}{.45\textwidth}
-        \cblswiftdesc
-      \end{column}
-
-      \begin{column}{.54\textwidth}
-        \begin{figure}
-          \fleximage{0.9}{swift_screenshot.png}
-        \end{figure}
-      \end{column}
-
-    \end{columns}
-  }
+  \flexblock{Common Workflow Language \& Galaxy}{
+    \begin{itemize}
+      \item Work in progress at https://github.com/common-workflow-language/galaxy.
+      \item Beta test running tool descriptions in Galaxy and integration with Galaxy's tool development SDK Planemo.
+      \item Workflow support will be added in 2016 and will require 
+      the extensions presented here - collections and real workflow 
+      scheduling.
+    \end{itemize}
+   }
 }
