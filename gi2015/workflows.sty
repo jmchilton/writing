@@ -22,7 +22,7 @@
       
       \item Free and open source, available at getgalaxy.org
 
-      \item Extract analysis histories into reusable workflows
+      \item \textit{Extract analysis histories into reusable workflows}
 
       \end{itemize}
     \end{column}
@@ -36,10 +36,10 @@
       \begin{column}{.48\textwidth}
       \begin{itemize}
 
-        \item Static number of inputs. Common, simple analyses in bioinformatics require running a variable number of inputs across identical processing steps (``mapping'')
+        \item \textit{Static number of inputs}. Common, simple analyses in bioinformatics require running a variable number of inputs across identical processing steps (``mapping'')
         and collecting these results into a merged output (``reducing'').
 
-        \item Workflow engine planned out every job right at submission
+        \item Workflow engine planned every job at submission
         time (allowing no dynamic computation).
         Many advanced features such as pausing workflows,
         splitting for parallelization, and conditionals all
@@ -85,17 +85,17 @@
 }
 
 \def\rnaseqblock{
-  \flexblock{Dataset Collection Workflows}{
+  \flexblock{Dataset Collections \& Workflows}{
     \begin{columns}
       \begin{column}{.48\textwidth}
         Collections solve the data flow problem.
         \begin{figure}
-           \fleximage{0.9}{workflow_editor.png}
+           \fleximage{1}{workflow_editor.png}
         \end{figure}              
       \end{column}
       \begin{column}{.48\textwidth}
         \begin{figure}
-           \fleximage{0.8}{cufflinks_workflow.png}
+           \fleximage{1}{cufflinks_workflow.png}
         \end{figure}              
         Canonical Galaxy RNA-Seq tuxedo workflow with collections.
       \end{column}
@@ -147,10 +147,10 @@
 \def\workflowrewrite{
   \flexblock{Real Workflow Scheduling}{
     \begin{itemize}
-      \item \textbf{Stateful models} allowing re-evaluating workflows over time.
-      \item Large and complex workflows will now be evaluated in the background.
-      \item Allow individual workflow modules to delay evaluation.
-      \item Plugin framework for describing how scheduling occurs.
+      \item \textit{Stateful models} allowing re-evaluating workflows over time.
+      \item Large and complex workflows will now be \textit{evaluated in the background}.
+      \item Allow individual workflow modules to \textit{delay evaluation}.
+      \item \textit{Plugin framework} for describing how scheduling occurs.
     \end{itemize}
    }
 }
@@ -213,11 +213,11 @@
       \item Portable means of representing and invoking
       command line tools which was then the basis for
       portable workflow descriptions.
-      \item Re-using existing formats and ontologies.
-      \item Second draft of the Common Workflow Language specification in March.
       \item A YAML description validated by an Apache Avro schema and
       that can be interpreted as an RDF graph using JSON-LD.
-      \item The documents are also valid Wf4Ever ''wfdesc`` descriptions after a simple transformation.
+      \item Re-using existing formats and ontologies.
+      \item Compatible with Wf4Ever descriptions.
+      \item Second draft of the Common Workflow Language specification past March, final 1.0 specification scheduled for next April.
     \end{itemize}
    }
 }
