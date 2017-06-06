@@ -229,6 +229,147 @@ Package, dependency and environment management
     - r
     - conda-forge
 
+---
+
+### BioConda (1 / 2)
+
+![](images/bioconda_github.png)
+
+???
+
+For comparison to similar projects - Homebrew-science has had 261 commits from 34 authors during the same period. DebianMed has had no new activity in 2017.
+
+---
+
+### BioConda (2 / 2)
+
+Compared with the Tool Shed dependency management (`tool_dependencies.xml`), BioConda is:
+
+- More popular!
+- Easier to develop.
+- Easier to install and test.
+
+???
+
+---
+
+### BioContainers - BioConda for Containers
+
+![](images/biocontainers.png)
+
+All Bioconda packages are built into minimal containers.
+
+This setup allows the same binaries to be used within the container or on traditional/HPC resources.
+Without any extra work by tool authors, Galaxy can automatically find or build “the correct” container for a best-practice tool.
+
+Over 2,300 containers already available.
+
+*We are not aware of another platform that supports this level of reproducibility inside and outside of containers.*
+
+---
+
+### BioContainers - For Administers
+
+Describe setting up Galaxy...
+
+---
+
+### BioContainers - For Developers
+
+Describe Planemo tooling options related to containers.
+
+---
+
+### BioContainers - More Exotic Tools
+
+Describe how multiple requirement containers are handled.
+
+---
+
+### Containerizing Tool Execution
+
+#### Decomposes to basic problems
+
+* <i class="fa fa-check-square-o" aria-hidden="true"></i><i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
+* <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+
+---
+
+## Scheduling - From Clusters to Containers
+
+Cluster Jobs:
+
+- Submit a script to execution infrastructure.
+- Execution infrastructure is DRM (e.g. SLURM) schedules job script.
+- Run directly on cluster node (bare metal or VM).
+
+Containerized Cluster Jobs (as of GCC 2016):
+
+- Submit a script to execution infrastructure.
+- Execution infrastructure is DRM (e.g. SLURM) schedules job script.
+- *Script runs command via Docker host on cluster node.*
+
+Native Container Jobs (as of GCC 2017)
+
+- Submit container ID and command to infrastructure.
+- Execution infrastructure (e.g. Kubernetes) schedules container execution.
+- No need to manage clusters or Docker hosts.
+
+---
+
+## Container Scheduling
+
+From Amazon ECS
+
+> <i class="fa fa-quote-left" aria-hidden="true"></i>Amazon ECS ***eliminates the need to install, operate, and scale your own cluster management infrastructure***, and allows you to schedule Docker-enabled applications across your cluster based on your resource needs and availability requirements. Amazon ECS enables you to ***grow from a single container to thousands of containers across hundreds of instances without any additional complexity*** in how you run your application.<i class="fa fa-quote-right" aria-hidden="true"></i>
+
+https://aws.amazon.com/ecs/details/
+
+---
+
+### Container Scheduling - Three Current Galaxy Approaches
+
+- Condor 
+- Kubernetes
+- Chronos for Mesos
+
+---
+
+class: center
+
+### Container Scheduling - Condor
+
+![](images/pr_condor.png)
+
+---
+
+class: center
+
+### Container Scheduling - Kubernetes
+
+![](images/pr_kubernetes.png)
+
+---
+
+class: center
+
+### Container Scheduling - Chronos for Mesos
+
+![](images/pr_chronos.png)
+
+---
+
+### Future Work
+
+* Singularity in Galaxy
+* Better GUI Management
+* Framework for Container Caching
+* Kubernetes 
+
+---
+
+### Thanks
+
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
