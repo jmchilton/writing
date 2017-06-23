@@ -127,7 +127,7 @@ Opened this PR within a few months of Björn.
 
 Just configure the destination. For instance, transform the cluster destination:
 
-```
+```xml
 <destination id="short_fast" runner="slurm">
     <param id="nativeSpecification">--time=00:05:00 --nodes=1</param>
 </destination>
@@ -136,7 +136,7 @@ Just configure the destination. For instance, transform the cluster destination:
 as follows:
 
 
-```
+```xml
 <destination id="short_fast" runner="slurm">
     <param id="nativeSpecification">--time=00:05:00 --nodes=1</param>
     <param id="docker_enabled">true</parma>
@@ -150,7 +150,7 @@ class: left
 
 ## Explicit Container Dependencies
 
-```
+```xml
 <requirements>
     <requirement type="package" version="1.2">seqtk</requirement>
 </requirements>
@@ -158,7 +158,7 @@ class: left
 
 into
 
-```
+```xml
 <requirements>
     <container type="docker">dukegcb/seqtk</container>
     <requirement type="package" version="1.2">seqtk</requirement>
@@ -203,7 +203,7 @@ class: left
 
 This:
 
-```
+```xml
 <requirements>
     <requirement type="package" version="1.2">seqtk</requirement>
 </requirements>
@@ -225,7 +225,7 @@ possibility of environment drift between package and container execution.
 
 .enlarge120[
 
-```
+```xml
 <requirements>
     <requirement type="package" version="1.2">seqtk</requirement>
 </requirements>
@@ -343,7 +343,7 @@ Conda information.
 
 .enlarge120[
 
-```
+```xml
 <requirements>
     <requirement type="package" version="1.2">seqtk</requirement>
 </requirements>
@@ -382,13 +382,50 @@ Over 2,300 containers already available.
 
 ---
 
-SHOW DOCKERFILE ISSUES CROSSED OUT
+class: left
+
+## ~~The Problems with Making Docker Explicit~~
+
+.enlarge120[
+
+* ~~Setting up a `Dockerfile` and publishing a Docker image more process for the tool even though the *dependencies have already been completely defined*.~~
+* ~~An arbitrary Docker image is a blackbox and there is *no guarantee Galaxy will execute the same binaries* as the Conda requirements.~~
+
+Galaxy can now just find or build BioContainers from `requirement` tags in best practice tools.
+
+]
 
 ---
 
-### BioContainers - More Exotic Tools
+### BioContainers - Multi-requirement Tools
 
-Describe how multiple requirement containers are handled.
+```xml
+<requirements>
+    <requirement type="package" version="0.7.15">bwa</requirement>
+    <requirement type="package" version="1.3.1">samtools</requirement>
+</requirements>
+```
+
+.center[![](images/quay_io_mulled.png)]
+
+---
+
+## Exploring Mulled Hashes - by Evgeny Anatskiy
+
+.center[![](images/multi-package-containers.png)]
+
+???
+
+---
+
+### Publishing **Your** Multi-Package Containers
+
+.center[.border[![](images/planemo-monitor.png)]]
+
+???
+
+We are currently monitoring tools-iuc, tools-devteam, and a half a dozen other repositories
+daily for package combinations to publish.
 
 ---
 
