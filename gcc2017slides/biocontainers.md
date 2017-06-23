@@ -1,3 +1,4 @@
+
 ---
 
 class: title
@@ -6,7 +7,7 @@ class: title
 
 John Chilton, Marius van den Beek, Björn Grüning, and the Galaxy Team
 
-The Slides @ http://bit.ly/bosc2016
+The Slides @ http://bit.ly/gcc2017
 
 The Twitters `#usegalaxy` `@jmchilton`
 
@@ -16,13 +17,13 @@ The Twitters `#usegalaxy` `@jmchilton`
 
 ## Generic Containers are Good Slide
 
-.image-75[![](images/containers.png)]
+.center[.image-75[![](images/containers.png)]]
 
 * Isolation and Security\*
 * Reproducibility
 * Flexibility\*
 
-.footnote[\* the industry is getting there]
+.center[.footnote[\* the industry is getting there]]
 
 ???
 
@@ -30,7 +31,9 @@ The Twitters `#usegalaxy` `@jmchilton`
 
 ## Galaxy in Containers?
 
+.center[
 .image-75[![](images/docker-galaxy-stable-github.png)]
+]
 
 ???
 
@@ -42,25 +45,43 @@ and a brilliant tool for training users.
 
 https://github.com/bgruening/docker-galaxy-stable/commit/27ef7966508958dfec9ce35ff1c5f076ffccf80f
 
+Also mention Galaxy KickStart as a way to run Galaxy itself in a container.
+
 ---
 
 ## Containerizing Galaxy vs Tools
 
+.enlarge120[
+We are going to discuss *containerizing jobs* instead of all of Galaxy.
+
+Small containers for a job's tool.
+
+However you deploy Galaxy, including in a container, tool execution can still be containerized.
+]
+
 ???
 
-TODO: Discuss difference - mention docker-galaxy-stable and galaxy-kickstarter
+So we are talking about running Galaxy's jobs in containers, not Galaxy itself. We will be discussing
+matching minimal best practice containers for particular tools.
+
+Small, best-practice containers for a job's tool.
+
+Even if you deploy Galaxy via a container, you can still containerize its jobs - so this approach is
+complimentary to docker-galaxy-stable not competing.s 
 
 ---
 
 class: left
 
-### Containerizing Tools is Important Also
+### Containerizing Tools is Still Important
 
-* Isolated tool execution.
-* Isolate file system access.
+.enlarge120[
+* Isolated tool execution environment.
+* Isolated file system access.
 * Added layer of security.
-* Increased re-computability.
+* *Increased re-computability*.
 * New deployment options - Kubernetes, Mesos Chronos, AWS Batch, etc.
+]
 
 ---
 
@@ -68,16 +89,20 @@ class: left
 
 ### Containerizing Tool Execution
 
-Decomposes to basic problems:
+#### Decomposes into two basic problems:
+
+.enlarge120[
 
 * <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
 * <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
 
+]
+
 ---
 
-### Three Years Ago...
+### Over Three Years Ago...
 
-.image-75[![](images/bbpr401.png)]
+.border[.center[.image-75[![](images/bbpr401.png)]]]
 
 ???
 
@@ -129,14 +154,18 @@ into
 
 ---
 
-### Containerizing Tool Execution
+## Containerizing Tool Execution
 
-#### Decomposes to basic problems
+#### Decomposes into two basic problems:
+
+.enlarge120[
 
 * <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
 * <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
 
 We're done... right?
+
+]
 
 ???
 
@@ -146,12 +175,18 @@ class: left
 
 ## The Problems with Making Docker Explicit
 
-* Setting up a `Dockerfile` and publishing a Docker image more process for the tool even though the dependencies have already been completely defined.
-* An arbitrary Docker image is a blackbox that we can't be sure will execute the same binaries as the Conda requirements.
+.enlarge120[
+
+* Setting up a `Dockerfile` and publishing a Docker image more process for the tool even though the *dependencies have already been completely defined*.
+* An arbitrary Docker image is a blackbox and there is *no guarantee Galaxy will execute the same binaries* as the Conda requirements.
+
+]
 
 ---
 
-## Put it Another Way
+## To Put it Another Way
+
+.enlarge120[
 
 This:
 
@@ -163,9 +198,19 @@ This:
 
 should have been sufficient!
 
+]
+
+???
+
+We shouldn't have had to modify the tool to get the containers working, and
+indeed specifying containers separately from requirements introduced a strong
+possibility of environment drift between package and container execution.
+
 ---
 
-## Put it Another Way
+## Another Problem...
+
+.enlarge120[
 
 ```
 <requirements>
@@ -173,7 +218,11 @@ should have been sufficient!
 </requirements>
 ```
 
-In 2014, this wasn't even sufficient for containerless execution. The resolution of these requirements required a `tool_dependencies.xml` file and required the tool to be published to a tool shed before it could be resolved.
+In 2014, this wasn't even sufficient for normal, containerless execution.
+
+The resolution of these requirements required a `tool_dependencies.xml` file and required the tool to be published to a tool shed before it could be resolved.
+
+]
 
 ???
 
@@ -186,49 +235,36 @@ been published to the tool shed.
 
 Package, dependency and environment management
 
----
+???
 
-.image-50[![](images/conda_logo.png)]
-
-- Based on recipes describing how to install the software which are then built for their distribution
-- No compilation at installation: binaries with their dependencies, libraries...
-- Not restricted to Galaxy
+We needed a new package manager to be able to build and publish containers for a set of requirements.
 
 ---
 
-###.image-25[![](images/conda_logo.png)] <br/> Conda distributions
-
-```
+###.image-25[![](images/conda_logo.png)] <br/> Conda Terminology
 
 
-```
-![](images/miniconda_vs_anaconda.png)
+Conda **recipes** build **packages** that are published to **channels**.
 
 ---
 
-###.image-25[![](images/conda_logo.png)] <br/> Channels
+### .image-25[![](images/conda_logo.png)] <br /> Conda Key Features for Galaxy
 
-- Packages through channels within Continuum.Anaconda
-- Conda channel searched by Galaxy for packages:
-    - iuc
-    - bioconda
-    - defaults
-    - r
-    - conda-forge
+.enlarge120[
 
----
+- No compilation at install time - *binaries* with their dependencies, libraries...
+- Support for all operating systems Galaxy targets
+- Easy to manage *multiple versions* of the same recipe
+- HPC-ready: no root privileges needed
+- Easy-to-write YAML recipes
+- **Community** - not *restricted* to Galaxy
 
-### BioConda (1 / 2)
-
-![](images/bioconda_github.png)
+]
 
 ???
 
-For comparison to similar projects - Homebrew-science has had 261 commits from 34 authors during the same period. DebianMed has had no new activity in 2017.
-
----
-
-### BioConda (2 / 2)
+- Recipes: independent of the progamming language in which software is written
+- Support for multiple versions at the same time is needed for reproducibility
 
 Compared with the Tool Shed dependency management (`tool_dependencies.xml`), BioConda is:
 
@@ -236,17 +272,95 @@ Compared with the Tool Shed dependency management (`tool_dependencies.xml`), Bio
 - Easier to develop.
 - Easier to install and test.
 
-???
+---
+
+# Conda Has Flurished Since the Last GCC
 
 ---
 
-### BioContainers - BioConda for Containers
+## Enabled by Default
 
-![](images/biocontainers.png)
+.center[.border[![](images/conda_by_default_pr.png)]]
 
-All Bioconda packages are built into minimal containers.
+---
 
-This setup allows the same binaries to be used within the container or on traditional/HPC resources.
+## Installing Tools with Conda
+
+.center[![](images/tool_install.png)]
+
+Huge thanks to Marius van den Beek, Brad Langhorst, and Martin Cech.
+
+???
+
+This work started at last years GCC hackathon by Brad and Marius and was improved and refined
+by Martin.
+
+---
+
+## Managing Tool Dependencies
+
+.center[![](images/dependency_manage.png)]
+
+???
+
+Marius followed up and added detailed admin controls for managing sets of dependencies. With
+the older Tool Shed dependency management - sets of dependencies were dependent on the tool and
+install context - so GUIs like this wouldn't have worked well.
+
+---
+
+## Planemo
+
+.center[.image-90[.border[![](images/conda_planemo_docs.png)]]]
+
+Conda is enabled by default in Planemo and the documentation has been overhauled with detailed
+Conda information.
+
+---
+
+## Training Material
+ 
+---
+
+# Conda has been a revolution for tool development and deployment.
+
+---
+
+## Back to Requirements...
+
+.enlarge120[
+
+```
+<requirements>
+    <requirement type="package" version="1.2">seqtk</requirement>
+</requirements>
+```
+
+We can now install and resolve dependencies using this alone!
+
+Therefore, we can *find and build containers using just this also*.
+
+]
+
+---
+
+## BioConda
+
+.border[.center[![](images/bioconda_github.png)]]1
+
+???
+
+For comparison to similar projects - Homebrew-science has had 261 commits from 34 authors during the same period. DebianMed has had no new activity in 2017.
+
+---
+
+## BioContainers - Bioconda for Containers
+
+.pull-right[.center[![](images/biocontainers.png)]]
+
+**All** Bioconda packages are built into minimal containers.
+
+This setup allows the **same binaries to be used within the container or on traditional/HPC resources**.
 Without any extra work by tool authors, Galaxy can automatically find or build “the correct” container for a best-practice tool.
 
 Over 2,300 containers already available.
@@ -255,15 +369,7 @@ Over 2,300 containers already available.
 
 ---
 
-### BioContainers - For Administers
-
-Describe setting up Galaxy...
-
----
-
-### BioContainers - For Developers
-
-Describe Planemo tooling options related to containers.
+SHOW DOCKERFILE ISSUES CROSSED OUT
 
 ---
 
@@ -273,12 +379,118 @@ Describe how multiple requirement containers are handled.
 
 ---
 
-### Containerizing Tool Execution
+## BioContainers - For Administrators
+
+- In `galaxy.ini`, set `enable_beta_mulled_containers = True`
+- In `job_conf.xml`, configure destination
+
+```
+<destination id="short_fast" runner="slurm">
+    <param id="docker_enabled">true</parma>
+    <param id="docker_sudo">false</param>
+</destination>
+```
+
+???
+
+Should work with all traditional cluster job runners, the local job runner, Pulsar, etc...
+
+---
+
+## BioContainers - For Developers (1 / 2)
+
+<dl>
+  <dt><b><code>planemo lint --conda_requirements my_tool.xml<code></b></dt>
+  <dd><i>Check if all tool requirements are available in best practice Conda channels - this is required for BioContainers.</i></dd>
+  <dt><b><code>planemo lint --biocontainers my_tool.xml<code></b></dt>
+  <dd><i>Check if a BioContainers container has been published for this tool.</i></dd>
+  <dt><b><code>planemo test --biocontainers my_tool.xml<code></b></dt>
+  <dd><i>Run tool tests using a BioContainer (these will build on the fly if not published).</i></dd>
+  <dt><b><code>planemo serve --biocontainers my_tool.xml<code></b></dt>
+  <dd><i>Interactive testing using biocontainers.</i></dd>
+  <dt><b><code>planemo mull my_tool.xml<code></b></dt>
+  <dd><i>Build and locally cache a BioContainer for specified tool.</i></dd>
+</dl>
+
+---
+
+## BioContainers - For Developers (2 / 2)
+
+.border[.center[![](images/biocontainers_planemo_docs.png)]]
+
+---
+
+## Containerizing Tool Execution
 
 #### Decomposes to basic problems
 
 * <i class="fa fa-check-square-o" aria-hidden="true"></i><i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
 * <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+
+---
+
+.enlarge120[
+
+Now that we can build and finding containers for *all* best practice tools, we can do some awesome things!
+
+I'll talk about a couple - Singularity and container scheduling - and mention a few more in the Future Work slide.
+
+]
+
+---
+
+## HPC Centers and the Docker Problem
+
+.enlarge120[
+
+HPC centers are incredibly important to Galaxy's past and future.
+
+HPC centers mostly dislike Docker.
+
+]
+
+---
+
+.center[![](images/singularity_paper.png)]
+
+---
+
+From Singularity's about page:
+
+> <i class="fa fa-quote-left" aria-hidden="true"></i> ***Singularity blocks privilege escalation*** within the container so if you want to be root inside the container, you first must be root outside the container. This usage paradigm mitigates many of the security concerns that exists with containers on multi-tenant shared resources.<i class="fa fa-quote-right" aria-hidden="true"></i>
+
+http://singularity.lbl.gov/about
+
+---
+
+.border[.center[![](images/singularity_mulled_pr.png)]]
+
+.center[Build Singularity images beside Docker images.]
+
+---
+
+.border[.center[![](images/singularity_gx_pr.png)]]
+
+.center[Uses the same find or build strategy as Docker.]
+
+---
+
+.border[.center[![](images/singularity_images.png)]]
+
+.center[We've started publishing Singularity images.]
+
+---
+
+## Using Singularity (requires Galaxy 17.09)
+
+- In `galaxy.ini`, set `enable_beta_mulled_containers = True`
+- In `job_conf.xml`, configure destination
+
+```
+<destination id="short_fast" runner="slurm">
+    <param id="singularity_enabled">true</parma>
+</destination>
+```
 
 ---
 
@@ -354,14 +566,39 @@ class: center
 
 ---
 
-### Future Work
+## Future Work
 
-* Singularity in Galaxy
-* Amazon
-* Better GUI Management
-* Framework for Container Caching
-* Kubernetes 
+.enlarge120[
 
+* Amazon EC2 Container Service
+* GUI Management of Containers
+* Infrastructure for Container Caching and Local Repository Mirrors
+
+]
 ---
 
 ### Thanks
+
+---
+
+###.image-25[![](images/conda_logo.png)] <br/> Conda distributions
+
+```
+
+
+```
+![](images/miniconda_vs_anaconda.png)
+
+---
+
+###.image-25[![](images/conda_logo.png)] <br/> Channels
+
+- Packages through channels within Continuum.Anaconda
+- Conda channel searched by Galaxy for packages:
+    - iuc
+    - bioconda
+    - defaults
+    - conda-forge
+
+---
+
