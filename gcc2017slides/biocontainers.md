@@ -7,7 +7,7 @@ class: title
 
 John Chilton, Marius van den Beek, Björn Grüning, and the Galaxy Team
 
-The Slides @ http://bit.ly/gcc2017
+The Slides @ http://bit.ly/gcc-biocontainers
 
 The Twitters `#usegalaxy` `@jmchilton`
 
