@@ -17,7 +17,7 @@ The Twitters `#usegalaxy` `@jmchilton`
 
 ## Generic Containers are Good Slide
 
-.center[.image-75[![](images/containers.png)]]
+.center[.image-75[![](images/container_vs_vm.svg)]]
 
 * Isolation and Security\*
 * Reproducibility
@@ -26,6 +26,11 @@ The Twitters `#usegalaxy` `@jmchilton`
 .center[.footnote[\* the industry is getting there]]
 
 ???
+
+I'm not going to belabor the point made frequently - containers are light
+weight alternatives to more traditional virtualization technology. The have
+real possiblity of providing more secure, reproducible, and flexible ways
+to execute tools in Galaxy.
 
 ---
 
@@ -80,7 +85,7 @@ class: left
 * Isolated file system access.
 * Added layer of security.
 * *Increased re-computability*.
-* New deployment options - Kubernetes, Mesos Chronos, AWS Batch, etc.
+* New deployment options - Kubernetes, Mesos Chronos, AWS EC2 Container Service, etc.
 ]
 
 ---
@@ -133,6 +138,19 @@ as follows:
 
 ---
 
+## Containerizing Tool Execution
+
+#### Decomposes into two basic problems:
+
+.enlarge120[
+
+* <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
+* <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+
+]
+
+---
+
 class: left
 
 ## Explicit Container Dependencies
@@ -177,7 +195,7 @@ class: left
 
 .enlarge120[
 
-* Setting up a `Dockerfile` and publishing a Docker image more process for the tool even though the *dependencies have already been completely defined*.
+* Setting up a `Dockerfile` and publishing a Docker image more process for the tool author even though the *dependencies have already been completely defined*.
 * An arbitrary Docker image is a blackbox and there is *no guarantee Galaxy will execute the same binaries* as the Conda requirements.
 
 ]
@@ -226,8 +244,8 @@ The resolution of these requirements required a `tool_dependencies.xml` file and
 
 ???
 
-How can I build a container for that requirements set if that requirements set is useless until the tool has 
-been published to the tool shed.
+How can I build a container for that requirements set if that requirements set
+is useless until the tool has been published to the tool shed.
 
 ---
 
@@ -238,13 +256,6 @@ Package, dependency and environment management
 ???
 
 We needed a new package manager to be able to build and publish containers for a set of requirements.
-
----
-
-###.image-25[![](images/conda_logo.png)] <br/> Conda Terminology
-
-
-Conda **recipes** build **packages** that are published to **channels**.
 
 ---
 
@@ -369,6 +380,12 @@ Over 2,300 containers already available.
 
 ---
 
+## BioContainers - Already Published
+
+.center[![](images/quayioseqtk.png)]
+
+---
+
 class: left
 
 ## ~~The Problems with Making Docker Explicit~~
@@ -381,38 +398,6 @@ class: left
 Galaxy can now just find or build BioContainers from `requirement` tags in best practice tools.
 
 ]
-
----
-
-### BioContainers - Multi-requirement Tools
-
-```xml
-<requirements>
-    <requirement type="package" version="0.7.15">bwa</requirement>
-    <requirement type="package" version="1.3.1">samtools</requirement>
-</requirements>
-```
-
-.center[![](images/quay_io_mulled.png)]
-
----
-
-## Exploring Mulled Hashes - by Evgeny Anatskiy
-
-.center[![](images/multi-package-containers.png)]
-
-???
-
----
-
-### Publishing **Your** Multi-Package Containers
-
-.center[.border[![](images/planemo-monitor.png)]]
-
-???
-
-We are currently monitoring tools-iuc, tools-devteam, and a half a dozen other repositories
-daily for package combinations to publish.
 
 ---
 
@@ -454,6 +439,40 @@ Should work with all traditional cluster job runners, the local job runner, Puls
 ## BioContainers - For Developers (2 / 2)
 
 .border[.center[![](images/biocontainers_planemo_docs.png)]]
+
+.footnote[.center[Also a Training Materials module!]]
+
+---
+
+### BioContainers - Multi-requirement Tools
+
+```xml
+<requirements>
+    <requirement type="package" version="0.7.15">bwa</requirement>
+    <requirement type="package" version="1.3.1">samtools</requirement>
+</requirements>
+```
+
+.center[![](images/quay_io_mulled.png)]
+
+---
+
+## Exploring Mulled Hashes - by Evgeny Anatskiy
+
+.center[![](images/multi-package-containers.png)]
+
+???
+
+---
+
+### Publishing **Your** Multi-Package Containers
+
+.center[.border[![](images/planemo-monitor.png)]]
+
+???
+
+We are currently monitoring tools-iuc, tools-devteam, and a half a dozen other repositories
+daily for package combinations to publish.
 
 ---
 
@@ -533,19 +552,19 @@ http://singularity.lbl.gov/about
 
 ## Scheduling - From Clusters to Containers
 
-Cluster Jobs:
+**Cluster Jobs**
 
 - Submit a script to execution infrastructure.
 - Execution infrastructure is DRM (e.g. SLURM) schedules job script.
 - Run directly on cluster node (bare metal or VM).
 
-Containerized Cluster Jobs (as of GCC 2016):
+**Containerized Cluster Jobs (Before 2017)**
 
 - Submit a script to execution infrastructure.
 - Execution infrastructure is DRM (e.g. SLURM) schedules job script.
 - *Script runs command via Docker host on cluster node.*
 
-Native Container Jobs (as of GCC 2017)
+**Native Container Jobs (2017 and Beyond)**
 
 - Submit container ID and command to infrastructure.
 - Execution infrastructure (e.g. Kubernetes) schedules container execution directly.
@@ -557,7 +576,7 @@ Native Container Jobs (as of GCC 2017)
 
 In moving from traditional cluster jobs to containerized cluster jobs the goal is *increased isolation and reproducibility*.
 
-In moving from containerized cluster jobs to native container scheduling technologies is elimination of cluster management software and moving scaling up the stack.
+In moving from containerized cluster jobs to native container scheduling technologies is *elimination of cluster management software and delegating job scaling for service providers (e.g. Google and Amazon)*.
 
 ---
 
@@ -583,7 +602,7 @@ class: center
 
 ### Container Scheduling - Condor
 
-![](images/pr_condor.png)
+.center[.border[![](images/pr_condor.png)]]
 
 ---
 
@@ -591,7 +610,7 @@ class: center
 
 ### Container Scheduling - Kubernetes
 
-![](images/pr_kubernetes.png)
+.center[.border[![](images/pr_kubernetes.png)]]
 
 ---
 
@@ -599,7 +618,7 @@ class: center
 
 ### Container Scheduling - Chronos for Mesos
 
-![](images/pr_chronos.png)
+.center[.border[![](images/pr_chronos.png)]]
 
 ---
 
@@ -638,4 +657,9 @@ class: center
     - conda-forge
 
 ---
+
+###.image-25[![](images/conda_logo.png)] <br/> Conda Terminology
+
+
+Conda **recipes** build **packages** that are published to **channels**.
 
