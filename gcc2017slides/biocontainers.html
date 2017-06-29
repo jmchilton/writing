@@ -4,7 +4,7 @@
     <title>Biocontainers</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style/style.css">
-    <link rel="stylesheet" type="text/css" href="style/font-awesome.css" id="theme">s
+    <link rel="stylesheet" type="text/css" href="style/font-awesome.css" id="theme">
   </head>
   <body>
     <textarea id="source">
@@ -148,19 +148,6 @@ as follows:
     <param id="docker_sudo">false</param>
 </destination>
 ```
-
----
-
-## Containerizing Tool Execution
-
-#### Decomposes into two basic problems:
-
-.enlarge120[
-
-* <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
-* <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
-
-]
 
 ---
 
@@ -565,7 +552,7 @@ http://singularity.lbl.gov/about
 
 ---
 
-## We didn't forget about HPC - we made packages more robust for HPC cluster as we also integrated HPC friendly containerization.
+## We didn't forget about HPC - we made packages more robust for HPC clusters as we also integrated HPC friendly containerization techonology.
 
 ---
 
@@ -603,7 +590,7 @@ The same reproducibility stack using the same libraries can be integrated into C
 
 In moving from traditional cluster jobs to containerized cluster jobs the goal is *increased isolation and reproducibility*.
 
-In moving from containerized cluster jobs to native container scheduling technologies is *elimination of cluster management software and delegating job scaling for service providers (e.g. Google and Amazon)*.
+In moving from containerized cluster jobs to native container scheduling technologies is *elimination of cluster management software and delegating job scaling to service providers (e.g. Google and Amazon)*.
 
 ---
 
@@ -703,6 +690,18 @@ BoF tomorrow at lunch!
 
 Conda **recipes** build **packages** that are published to **channels**.
 
+---
+
+## Containerizing Tool Execution
+
+#### Decomposes into two basic problems:
+
+.enlarge120[
+
+* <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
+* <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+
+]
 
 
     </textarea>

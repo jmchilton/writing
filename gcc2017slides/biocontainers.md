@@ -138,19 +138,6 @@ as follows:
 
 ---
 
-## Containerizing Tool Execution
-
-#### Decomposes into two basic problems:
-
-.enlarge120[
-
-* <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
-* <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
-
-]
-
----
-
 class: left
 
 ## Explicit Container Dependencies
@@ -690,3 +677,15 @@ BoF tomorrow at lunch!
 
 Conda **recipes** build **packages** that are published to **channels**.
 
+---
+
+## Containerizing Tool Execution
+
+#### Decomposes into two basic problems:
+
+.enlarge120[
+
+* <i class="fa fa-square-o" aria-hidden="true"></i> Instruct Galaxy where to find a container for the tool.
+* <i class="fa fa-check-square-o" aria-hidden="true"></i> Instruct Galaxy to run the tool in a container.
+
+]
