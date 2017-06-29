@@ -78,7 +78,7 @@ complimentary to docker-galaxy-stable not competing.s
 
 class: left
 
-### Containerizing Tools is Still Important
+## Containerizing Tools is Still Important
 
 .enlarge120[
 * Isolated tool execution environment.
@@ -92,7 +92,7 @@ class: left
 
 class: left
 
-### Containerizing Tool Execution
+## Containerizing Tool Execution
 
 #### Decomposes into two basic problems:
 
@@ -115,7 +115,7 @@ Opened this PR within a few months of Björn.
 	
 ---
 
-### Configuring Galaxy to Use Containers
+## Configuring Galaxy to Use Containers
 
 Just configure the destination. For instance, transform the cluster destination:
 
@@ -357,7 +357,7 @@ Therefore, we can *find and build containers using just this also*.
 
 ## BioConda
 
-.border[.center[![](images/bioconda_github.png)]]1
+.border[.center[![](images/bioconda_github.png)]]
 
 ???
 
@@ -444,7 +444,7 @@ Should work with all traditional cluster job runners, the local job runner, Puls
 
 ---
 
-### BioContainers - Multi-requirement Tools
+## BioContainers - Multi-requirement Tools
 
 ```xml
 <requirements>
@@ -460,6 +460,8 @@ Should work with all traditional cluster job runners, the local job runner, Puls
 ## Exploring Mulled Hashes - by Evgeny Anatskiy
 
 .center[![](images/multi-package-containers.png)]
+
+.footer[.center[http://biocontainers.pro/multi-package-containers/]]
 
 ???
 
@@ -487,9 +489,9 @@ daily for package combinations to publish.
 
 .enlarge120[
 
-Now that we can build and finding containers for *all* best practice tools, we can do some awesome things!
+Infrastructure for build and finding containers for *all* best practice tools allows us to start doing some awesome things!
 
-I'll talk about a couple - Singularity and container scheduling - and mention a few more in the Future Work slide.
+I'll talk about a few - CWL, Singularity, and container scheduling - and mention a few more in the Future Work slide.
 
 ]
 
@@ -547,6 +549,18 @@ http://singularity.lbl.gov/about
     <param id="singularity_enabled">true</parma>
 </destination>
 ```
+
+---
+
+## We didn't forget about HPC - we made packages more robust for HPC cluster as we also integrated HPC friendly containerization.
+
+---
+
+## Common Workflow Language Support
+
+.border[.center[![](images/cwl_pr.png)]]
+
+The same reproducibility stack using the same libraries can be integrated into CWL (Conda + BioContainers).
 
 ---
 
@@ -622,6 +636,12 @@ class: center
 
 ---
 
+## Kubernetes
+
+BoF tomorrow at lunch!
+
+---
+
 ## Future Work
 
 .enlarge120[
@@ -634,6 +654,11 @@ class: center
 ---
 
 ### Thanks
+
+- Conda-ifying Galaxy and tools: Martin Cech, Brad Langhorst, and really the whole IUC and even beyond.
+- Building container scheduling job runners: Pablo Moreno, Thodoris Sotiropoulos
+- Multi-package hash explorer: Evgeny Anatskiy
+- Common Workflow Language integration: James Taylor, Michael Crusoe, Peter Amstutz
 
 ---
 
