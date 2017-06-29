@@ -552,7 +552,7 @@ http://singularity.lbl.gov/about
 
 ---
 
-## We didn't forget about HPC - we made packages more robust for HPC cluster as we also integrated HPC friendly containerization.
+## We didn't forget about HPC - we made packages more robust for HPC clusters as we also integrated HPC friendly containerization techonology.
 
 ---
 
@@ -590,7 +590,7 @@ The same reproducibility stack using the same libraries can be integrated into C
 
 In moving from traditional cluster jobs to containerized cluster jobs the goal is *increased isolation and reproducibility*.
 
-In moving from containerized cluster jobs to native container scheduling technologies is *elimination of cluster management software and delegating job scaling for service providers (e.g. Google and Amazon)*.
+In moving from containerized cluster jobs to native container scheduling technologies is *elimination of cluster management software and delegating job scaling to service providers (e.g. Google and Amazon)*.
 
 ---
 
