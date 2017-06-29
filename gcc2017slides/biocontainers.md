@@ -653,12 +653,14 @@ BoF tomorrow at lunch!
 ]
 ---
 
-### Thanks
+## Thanks
 
+.enlarge120[ 
 - Conda-ifying Galaxy and tools: Martin Cech, Brad Langhorst, and really the whole IUC and even beyond.
 - Building container scheduling job runners: Pablo Moreno, Thodoris Sotiropoulos
 - Multi-package hash explorer: Evgeny Anatskiy
 - Common Workflow Language integration: James Taylor, Michael Crusoe, Peter Amstutz
+]
 
 ---
 
