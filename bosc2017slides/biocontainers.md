@@ -9,9 +9,9 @@ John Chilton, Marius van den Beek, Björn Grüning, Johannes Köster, and the Ga
 
 John Chilton, Marius van den Beek, Björn Grüning, and the Galaxy Team
 
-The Slides @ http://bit.ly/gcc-biocontainers
+The Slides @ http://bit.ly/bosc-biocontainers
 
-The Twitters `#usegalaxy` `@jmchilton`
+The Twitters `@jmchilton`, `#usegalaxy`, `#commonwl`
 
 ???
 
