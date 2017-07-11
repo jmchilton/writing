@@ -2,8 +2,10 @@
 ---
 
 class: title
-# Bioconda and BioContainers
-## Enabling Universal Reproducibility in Galaxy
+# A Ubiquitous Approach to Reproducible Bioinformatics
+## Across Computational Platforms
+
+John Chilton, Marius van den Beek, Björn Grüning, Johannes Köster, and the Galaxy Team
 
 John Chilton, Marius van den Beek, Björn Grüning, and the Galaxy Team
 
