@@ -14,13 +14,28 @@ The Twitters `@jmchilton`, `#usegalaxy`, `#commonwl`
 
 ???
 
-1 min - Intro and problem with explicit annotation.
-1 min - Conda is better :(, SnakeMake
-1 min - Biocontainers and Galaxy Support.
-1 min - CWL.
+45 secs - Intro and problem with explicit annotation.
+ - 15 seconds on example slide.
+ - 30 seconds on problems with explicit annotation.
+ - TODO: Find a transition.
 
-20 seconds - repeat key points.
-20 seconds - thanks.
+1:15 min - Conda is better :(, SnakeMake
+ - 60 seconds on the comparison slide.
+ - 15 seconds on mention SnakeMake.
+
+1 min - Biocontainers and Galaxy Support.
+ - 30 seconds Biocontainers (TODO write what your going to say)
+ - 30 seconds on jumping off point, reference my GCC talk.
+
+1 min - CWL
+  - 10 seconds on announce slide.
+  - 20 seconds on install and use slide.
+  - 30 seconds on application.
+
+1 min - wrap it up:
+ - 20 seconds - quick aside.
+ - 20 seconds - repeat key points.
+ - 20 seconds - thanks.
 
 ---
 
@@ -50,6 +65,8 @@ hints:
 
 ???
 
+Both Galaxy and the Common Workflow Language allow you to annotate tools with Docker.
+
 TODO: Verify DockerRequirement syntax!
 
 ---
@@ -66,8 +83,13 @@ An arbitrary container image is a blackbox and there is *no guarantee Galaxy/cwl
 
 ???
 
-We've had Docker support for over three years, but we don't brag about it because
-we aren't happy about explicit annotation.
+For Galaxy in particular, we've had support for Docker since 2014. But we've not really 
+bragged about it because we aren't happy about explicit annotation. We annotate tools
+with packages that are installable in native systems for non-containerized execution.
+
+So in our view it both hurts reproducibility to annotate a Docker image that is a blackbox
+that may not provide the same binaries and libraries as the package annotations - but also
+it is completely redundant.
 
 ---
 
@@ -202,10 +224,28 @@ $ cwltoil --beta-use-biocontainers tests/seqtk_seq.cwl tests/seqtk_seq_job.json
 
 ---
 
+## CWL Support - An Application
+
+---
+
+## Quick Aside: It isn't just Conda
+
+The Galaxy library support added to cwltool doesn't just provide Conda resolution.
+Galaxy entire dependency resolution plugin system is available - meaning support
+for Enviornment Modules and Homebrew (beta) are in cwltool as well.
+
+You don't have to use the Bioconda/BioContainers stack to use the plugin infrastructure to
+really enable CWL on HPC!
+
+---
+
 - Conda is uniquely qualified to manage packages for scientific computational platforms -
-  used by both Galaxy and SnakeMake.
-- BioConda + Biocontainers provides an amazing reproducibility in and out of container.
-- Can be used on the command line, in Galaxy, with cwltool, and with Toil*.
+  used by both Galaxy & SnakeMake.
+- BioConda + Biocontainers provides reproducibility in and out of containers.
+- Galaxy, cwltool, and Toil* use these provide reproduciblity across packages and Docker.
+- Galaxy extends reproduciblity by providing support for Singularity, persistent provenance 
+  tracking, and usable UIs for everything from job management and workflow building to data
+  sharing.
 
 ---
 
