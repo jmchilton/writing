@@ -19,8 +19,6 @@ class: title
 
 John Chilton, Marius van den Beek, Björn Grüning, Johannes Köster, and the Galaxy Team
 
-John Chilton, Marius van den Beek, Björn Grüning, and the Galaxy Team
-
 The Slides @ http://bit.ly/bosc-biocontainers
 
 The Twitters `@jmchilton`, `#usegalaxy`, `#commonwl`
@@ -173,7 +171,7 @@ dependencies:
 
 ## BioContainers - Bioconda for Containers
 
-.pull-right[.center[![](images/biocontainers.png)]]
+.pull-right[.image-75[.center[![](images/biocontainers.png)]]]
 
 *All* Bioconda packages are built into minimal containers.
 
@@ -201,7 +199,7 @@ See [bit.ly/gcc-biocontainers](https://bit.ly/gcc-biocontainers) for more detail
 
 ## Bioconda and BioContainers for CWL
 
-.border[.center[![](images/cwl_pr.png)]]
+.border[.center[![](images/cwl_pr_merged.png)]]
 
 The same reproducibility stack using the same libraries has been integrated into cwltool and an open PR exists for Toil (Conda + BioContainers).
 
@@ -238,13 +236,13 @@ $ cwltoil --beta-use-biocontainers tests/seqtk_seq.cwl tests/seqtk_seq_job.json
 
 ---
 
-## CWL Support - An Application
+## CWL Support - An Application from James Taylor
 
 .border[.center[.image-75[![](images/vision.png)]]]
 
 - https://github.com/bxlab/vision-workflows
-- Follows ENCODE best practices pipelines for ChIP-seq - combines 11 tools.
-- Worked fine with Docker but needed to run on local HPC resources.
+- ChIP-seq workflow (following ENCODE best practices) - combines 11 tools.
+- Worked with Docker but needed to run on local HPC resources.
 - Conflicting dependencies prevent global installation of dependencies.
 - With per-tool Conda environments and cwltool this just worked!
 
@@ -252,12 +250,15 @@ $ cwltoil --beta-use-biocontainers tests/seqtk_seq.cwl tests/seqtk_seq_job.json
 
 ## Quick Aside: It isn't just Conda
 
-The Galaxy library support added to cwltool doesn't just provide Conda resolution.
-Galaxy entire dependency resolution plugin system is available - meaning support
-for **Enviornment Modules and Homebrew** (beta) are in cwltool as well.
+.enlarge120[
+
+Galaxy's entire dependency resolution plugin system is available - meaning support
+for **Enviornment Modules, Homebrew (beta), etc.** are available in cwltool as well.
 
 You don't have to use the Bioconda/BioContainers stack to use the plugin infrastructure to
 really **enable CWL on HPC**!
+
+]
 
 ---
 
