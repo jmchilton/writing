@@ -35,60 +35,21 @@ The Twitters `@jmchilton`, `#usegalaxy`, `#commonwl`
  - 20 seconds - repeat key points.
  - 20 seconds - thanks.
 
----
-
-## Containers in Galaxy and CWL
-
-Galaxy:
-
-```xml
-<requirements>
-    <container type="docker">dukegcb/seqtk</container>
-    <requirement type="package" version="1.2">seqtk</requirement>    
-</requirements>
-```
-
-Common Workflow Language:
-
-```yaml
-hints:
-  DockerRequirement:
-    dockerPull: dukegcb/seqtk
-  SoftwareRequirement:
-    packages:
-    - package: seqtk
-      version:
-      - r93
-```
-
-???
-
-Both Galaxy and the Common Workflow Language allow you to annotate tools with a Docker
-image to use.
-
-TODO: Verify DockerRequirement syntax!
 
 ---
 
-class: left
+class: title
+# ~~A Ubiquitous Approach to Reproducible Bioinformatics Across Computational Platforms~~
 
-## The Problem with Making Docker Explicit
+# That reproducibility stack Björn discussed (Bioconda and BioContainers) is ideal for computational platforms!
 
-.enlarge120[
+The Slides @ http://bit.ly/bosc-biocontainers
 
-An arbitrary container image is a blackbox and there is *no guarantee Galaxy/cwltool/Toil will execute the same binaries* outside the container.
-
-]
+The Twitters `@jmchilton`, `#usegalaxy`, `#commonwl`
 
 ???
 
-For Galaxy in particular, we've had support for Docker since 2014. But we've not really 
-bragged about it because we aren't happy about explicit annotation. We annotate tools
-with packages that are installable in native systems for non-containerized execution.
-
-So in our view it both hurts reproducibility to annotate a Docker image that is a blackbox
-that may not provide the same binaries and libraries as the package annotations - but also
-it is completely redundant.
+Welcome, I'm not even going to read the obnoxious title, the real title should just be "That reproducibility stack Björn discussed (Bioconda and BioContainers) is ideal for computational platforms!"
 
 ---
 
@@ -96,13 +57,19 @@ it is completely redundant.
 
 .enlarge120[
 
-- HPC-ready (no root privileges needed) ~~Debian~~
-- Cross-Platform (Windows, Mac OS X, Linux) ~~GUIX~~
-- Easy to manage and maintain *multiple versions* of the same recipe ~~Homebrew~~
+- HPC-ready (no root privileges needed)
+- Cross-Platform (Windows, Mac OS X, Linux)
+- Easy to manage and maintain (not just install) *multiple versions* of the same recipe
 
 ]
 
 ???
+
+If I had a full talk - I'd argue but instead I just need to state without evidence that
+Conda is the only package manager discussed today that simulatenously meets all three of
+these very important criteria for Galaxy (and I suspect other platforms).
+
+<BREAK>
 
 I love the dedication of Debina Med packagers - their dedicaton somehow makes the
 entire open source informatics software ecosystem better. But Galaxy and cwltool
@@ -154,6 +121,69 @@ dependencies:
  - r-ggplot2=2.1.0
 ```
 
+???
+
+Even if you don't use BioContainers - the Conda base is pretty good for computational
+platforms. SnakeMake is a great example of platform that leverages just Conda this way.
+
+---
+
+## Containers in Galaxy and CWL
+
+Galaxy:
+
+```xml
+<requirements>
+    <container type="docker">dukegcb/seqtk</container>
+    <requirement type="package" version="1.2">seqtk</requirement>    
+</requirements>
+```
+
+Common Workflow Language:
+
+```yaml
+hints:
+  DockerRequirement:
+    dockerPull: dukegcb/seqtk
+  SoftwareRequirement:
+    packages:
+    - package: seqtk
+      version:
+      - r93
+```
+
+???
+
+But getting into the nitty gritty of containers though - one thing that is clear is Docker
+is no longer news. All the big platforms and workflow engines frequently discussed at BOSC 
+allow annotation of Docker images for their tools or modules.
+
+Here is syntax for doing this in Galaxy and CWL.
+
+Notice the images are explicit!
+
+---
+
+class: left
+
+## The Problem with Making Docker Explicit
+
+.enlarge120[
+
+An arbitrary container image is a blackbox and there is *no guarantee Galaxy/cwltool/Toil will execute the same binaries* outside the container.
+
+]
+
+???
+
+In Galaxy, we've not really advertised our Docker support in tools aggressively because we 
+aren't happy about explicit annotation this way. We already annotate tools with packages that are installable non-containerized enviornments. This is very important for HPC.
+
+So in our view the explicit annotation of containers is both un-nessecary work the tool 
+developer (thanks to BioContainers) and hurts reproducibility - since that image is a blackbox and
+may not provide the same binaries and libraries as the package 
+annotations.
+
 ---
 
 ## BioContainers - Bioconda for Containers
@@ -166,6 +196,12 @@ This setup allows the *same binaries to be used within the container or on tradi
 
 Without any extra work by tool authors, **Galaxy can automatically find or build “the
 correct” container** for a best-practice tool.
+
+???
+
+So our preferred approach to containers is now ready to go thanks to BioContainers.
+Björn already discussed these in depth - I will just say that Biocontainers have enabled 
+Galaxy to find or build containers on-demand for all best-practice Galaxy tools.
 
 ---
 
@@ -182,6 +218,20 @@ We can do some cool new things with these containers:
 
 See [bit.ly/gcc-biocontainers](https://bit.ly/gcc-biocontainers) for more details.
 
+???
+
+By shifting the burden of handling details of containers from the tool author to
+the platform, we have increased reproducibility and made available containers for all
+"best practice" tools without any extra effort from the tool author.
+
+Having containers for thousands of tools now is enabling us to do some pretty exciting
+things in Galaxy. Check out my GCC talk from a month ago to dig deeper into these - but
+some highlights include supporting Singularity for Galaxy tools as well as enabling
+native container scheduling in both Kubernetes and Mesos. 
+
+A lot of these Galaxy goodies aren't tied to our platform or our tool format and are
+avaiable in galaxy-lib, a small subset of Galaxy that allows reuse of bits and pieces of Galaxy.
+
 ---
 
 ## Bioconda and BioContainers for CWL
@@ -189,6 +239,15 @@ See [bit.ly/gcc-biocontainers](https://bit.ly/gcc-biocontainers) for more detail
 .border[.center[![](images/cwl_pr_merged.png)]]
 
 The same reproducibility stack using the same libraries has been integrated into cwltool and an open PR exists for Toil (Conda + BioContainers).
+
+???
+
+One cool thing we have done with galaxy-lib is used it to bring this reproducibility
+stack to CWL.
+
+cwltool now supports both Conda dependency resolution of CWL SoftwareRequirements that is ideal for HPC settings - as well as supporting the find or build BioContainers strategy for using these same dependencies inside of containers.
+
+An open PR exists for adding similar support to toil as well.
 
 ---
 
@@ -221,6 +280,10 @@ $ cwltoil --beta-conda-dependencies tests/seqtk_seq.cwl tests/seqtk_seq_job.json
 $ cwltoil --beta-use-biocontainers tests/seqtk_seq.cwl tests/seqtk_seq_job.json
 ```
 
+???
+
+I won't go into detail about how to use - I'll just note there are now simple flags to enable both of these modes of operation - and mention they documented well in cwltool's README.
+
 ---
 
 ## CWL Support - An Application from James Taylor
@@ -232,6 +295,16 @@ $ cwltoil --beta-use-biocontainers tests/seqtk_seq.cwl tests/seqtk_seq_job.json
 - Worked with Docker but needed to run on local HPC resources.
 - Conflicting dependencies prevent global installation of dependencies.
 - With per-tool Conda environments and cwltool this just worked!
+
+???
+
+Here is an application from my first real user of this CWL work.
+James Taylor built these ChIP-seq worklfows based on ENCODE best practices
+and everything worked well in Docker-based testing. But ultimately he needed
+these to run in an HPC environment. He tried building a big global environment
+with all the dependencies but they were conflicting. Switching his CWL execution
+to per-tool Conda environments (the way Galaxy would have done it) enabled everything
+to just work.
 
 ---
 
@@ -254,12 +327,11 @@ really **enable CWL on HPC**!
 .enlarge120[
 
 - Conda is uniquely qualified to manage packages for scientific computational platforms -
-  used by both Galaxy & SnakeMake.
-- BioConda + Biocontainers provides reproducibility in and out of containers.
-- Galaxy, cwltool, and Toil* use these provide reproduciblity across packages and Docker.
-- Galaxy extends reproduciblity by providing support for Singularity, persistent provenance 
-  tracking, and usable UIs for everything from job management and workflow building to data
-  sharing.
+  it represents the best practice approach within Galaxy & SnakeMake.
+- BioConda + Biocontainers now provide reproducibility both inside and outside of containers.
+- Galaxy, cwltool, and Toil* can now use this stack to provide reproduciblity across packages and Docker.
+- Galaxy extends this reproduciblity by providing support for Singularity, persistent
+  provenance tracking, and usable UIs for everything from job management and workflow building to data sharing.
 
 ]
 
